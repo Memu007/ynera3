@@ -550,10 +550,11 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
 .hero-visual.hero-garden svg{display:block;width:100%;max-width:520px;height:auto;overflow:visible}
 .hero-visual .garden{filter:drop-shadow(0 20px 36px rgba(0,0,0,.12))}
 .hero-visual .garden-caption{position:absolute;left:4%;right:4%;bottom:0;padding:11px 2px 0}
-.plant-tooltip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-100%) translateY(-8px);background:rgba(23,42,32,.96);border:1px solid rgba(31,138,91,.3);border-radius:5px;padding:8px 12px;font-family:var(--serif);font-size:12px;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;z-index:10;transition:opacity .35s ease,transform .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 8px 24px rgba(0,0,0,.22)}
-.plant-tooltip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:rgba(23,42,32,.96)}
+.plant-tooltip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-100%) translateY(-8px);display:grid;gap:2px;min-width:138px;background:rgba(226,211,182,.97);border:0;border-left:2px solid var(--coral);border-radius:0;padding:8px 10px;font-size:12px;color:#19241D;white-space:nowrap;z-index:10;transition:opacity .35s ease,transform .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 8px 22px rgba(25,36,29,.13)}
+.plant-tooltip::after{display:none}
 .plant-tooltip.show{opacity:1;transform:translate(-50%,-100%) translateY(-14px)}
-.plant-tooltip .species{font-style:italic;color:var(--ink-70);font-size:11px;display:block;margin-top:2px}
+.plant-tooltip .common{font-family:var(--serif);font-size:14px;font-style:italic;font-weight:700;color:var(--coral);line-height:1.1}
+.plant-tooltip .species{display:block;margin-top:1px;font-family:var(--mono);font-size:7px;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:rgba(25,36,29,.55)}
 .garden g[class*="plant-"]{cursor:crosshair;transition:filter .3s ease}
 .garden g[class*="plant-"]:hover{filter:brightness(1.18) saturate(1.15)}
 .garden .hit-area{fill:transparent;stroke:none;pointer-events:all}
@@ -593,39 +594,80 @@ nav#nav.scrolled{background:rgba(226,211,182,.96);border-color:var(--ink-12);box
 .hero::before{background:linear-gradient(115deg,transparent,rgba(31,138,91,.07) 44%,rgba(122,31,61,.08) 62%,transparent)}
 .hero-visual.hero-garden{border-radius:48% 52% 46% 54% / 42% 46% 54% 58%;background:radial-gradient(circle at 54% 52%,rgba(210,189,152,.5),rgba(31,138,91,.075) 58%,transparent 74%)}
 .hero-visual .garden{filter:drop-shadow(0 22px 32px rgba(42,69,54,.12))}
-.hero-protocol{--deep:#0E1C16;--deep-2:#14271E;--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;--aqua-dim:rgba(98,212,154,.14);--coral:#7A1F3D;--coral-dim:rgba(122,31,61,.16);color:var(--ink);width:100vw;max-width:none;justify-self:center;margin:42px 0 0;border:0;border-radius:0;overflow:hidden;background:radial-gradient(ellipse at 8% 10%,rgba(98,212,154,.18),transparent 34%),radial-gradient(ellipse at 94% 88%,rgba(122,31,61,.18),transparent 37%),linear-gradient(115deg,#153126,#0B1812 62%,#11182B);box-shadow:inset 0 -1px rgba(122,31,61,.2)}
+.hero{padding-bottom:36px}
+.services-section{--deep:#0E1C16;--deep-2:#14271E;--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;--aqua-dim:rgba(98,212,154,.14);--coral:#7A1F3D;--coral-dim:rgba(122,31,61,.16);position:relative;padding:0;color:var(--ink);background:linear-gradient(115deg,#174A34 0%,#103426 58%,#172C25 100%);overflow:hidden}
+.services-transition{position:relative;width:100%;pointer-events:none}
+.services-transition--in{height:72px;background:linear-gradient(180deg,#E2D3B6 0%,rgba(98,212,154,.13) 50%,rgba(21,49,38,.9) 100%)}
+.hero-protocol{color:var(--ink);width:100%;max-width:none;margin:0;border:0;border-radius:0;overflow:hidden;pointer-events:auto;background:radial-gradient(ellipse at 8% 18%,rgba(98,212,154,.18),transparent 34%),radial-gradient(ellipse at 94% 88%,rgba(122,31,61,.18),transparent 37%);box-shadow:inset 0 -1px rgba(122,31,61,.2)}
 .hero-protocol::before{inset:-22% -4%;z-index:0;border-radius:50%;background:linear-gradient(100deg,transparent 8%,rgba(98,212,154,.09) 35%,rgba(122,31,61,.06) 68%,transparent 92%);filter:blur(28px)}
-.hero-protocol::after{content:"";position:absolute;z-index:2;left:0;right:0;top:0;height:46px;pointer-events:none;background:linear-gradient(180deg,rgba(226,211,182,.22),transparent)}
+.hero-protocol::after{display:none}
 .protocol-row{position:relative;z-index:1;width:min(1140px,calc(100% - 52px));margin:0 auto;padding:34px 32px 34px 54px}
 .protocol-row::before{content:"";position:absolute;left:21px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(98,212,154,.52) 18%,rgba(98,212,154,.25) 82%,transparent)}
 .protocol-row::after{content:"";position:absolute;left:17px;top:50%;width:9px;height:9px;border-radius:50%;background:var(--aqua);box-shadow:0 0 0 5px rgba(98,212,154,.1),0 0 18px rgba(98,212,154,.4);transform:translateY(-50%)}
 .protocol-row+.protocol-row{border-color:rgba(98,212,154,.14)}
 .protocol-copy{position:relative}
 .protocol-copy::after{content:"";position:absolute;right:4px;top:12%;bottom:12%;width:1px;background:linear-gradient(180deg,transparent,rgba(98,212,154,.26),transparent)}
-.synthesis-head{position:relative}
-.synthesis-head::after{content:"";position:absolute;left:50%;bottom:-42px;width:1px;height:42px;background:linear-gradient(180deg,rgba(31,138,91,.15),var(--aqua));z-index:3}
-.synthesis-head::before{content:"";position:absolute;left:calc(50% - 5px);bottom:-48px;width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(122,31,61,.12),0 0 18px rgba(122,31,61,.28);z-index:4}
-#productos{background:linear-gradient(180deg,rgba(31,138,91,.12),rgba(244,240,230,0) 72%)}
+.protocol-copy h3{font-size:clamp(21px,2.1vw,28px);max-width:20ch}
+.protocol-outcome{display:grid;gap:4px;margin-top:12px;padding-top:10px;border-top:1px solid var(--ink-12);font-family:var(--mono);font-size:9px;line-height:1.55;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-45)}
+.protocol-outcome b{font-weight:500;color:var(--aqua)}
+.protocol-outcome a{width:max-content;margin-top:3px;color:var(--ink);border-bottom:1px solid var(--coral);pointer-events:auto}
+.protocol-outcome a:hover{color:var(--coral)}
+.synthesis-head{position:relative;z-index:1;width:min(1140px,calc(100% - 52px));margin:0 auto;padding:44px 32px 38px 54px;border-top:0;border-bottom:1px solid rgba(98,212,154,.16);grid-template-columns:minmax(390px,1fr) minmax(0,1fr);gap:52px;align-items:center}
+.synthesis-head h2{margin-top:16px;color:var(--ink);font-size:clamp(34px,3.8vw,52px);max-width:17ch}
+.synthesis-head h2 em{color:var(--ink);text-decoration-line:underline;text-decoration-color:var(--coral);text-decoration-thickness:.08em;text-underline-offset:.08em}
+.synthesis-head .tag{color:var(--aqua)}
+.synthesis-head .lead{color:var(--ink-70);max-width:42ch;justify-self:start;padding-bottom:4px}
+.synthesis-head::before,.synthesis-head::after{display:none}
+#productos{padding:0;background:linear-gradient(180deg,rgba(31,138,91,.1),rgba(244,240,230,0) 72%)}
+.product-bridge,.about-bridge,.faq-bridge,.final-bridge,.footer-bridge{position:relative;z-index:1;height:92px;padding-top:52px}
+.product-bridge,.faq-bridge,.footer-bridge{background:linear-gradient(180deg,#172C25 0%,rgba(31,138,91,.24) 43%,#E2D3B6 100%)}
+.product-bridge .tag{color:var(--ink-45)}
+#productos>.wrap{padding-top:54px}
+#productos .sec-head{margin-bottom:58px}
 #pilares{background:rgba(31,138,91,.105)}
-#nosotros{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;--aqua-dim:rgba(98,212,154,.14);--coral:#7A1F3D;--coral-dim:rgba(122,31,61,.16);color:var(--ink);background:linear-gradient(135deg,#14271E,#0E1B15)}
+#nosotros{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;--aqua-dim:rgba(98,212,154,.14);--coral:#7A1F3D;--coral-dim:rgba(122,31,61,.16);padding:0 0 128px;color:var(--ink);background:linear-gradient(135deg,#174A34,#10291E 72%,#172C25)}
+#nosotros>.wrap{padding-top:54px}
+.about-bridge,.final-bridge{background:linear-gradient(180deg,#E2D3B6 0%,rgba(31,138,91,.24) 46%,#174A34 100%)}
+.about-bridge .tag{color:rgba(240,242,232,.68)}
 #nosotros::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 20%,rgba(98,212,154,.1),transparent 25%),radial-gradient(circle at 88% 70%,rgba(122,31,61,.1),transparent 25%)}
 #nosotros svg [stroke="#7A1F3D"]{stroke:#7A1F3D}
 #nosotros svg [fill="#7A1F3D"]{fill:#7A1F3D}
 #nosotros svg [stroke="#1F8A5B"]{stroke:#62D49A}
 #nosotros svg [fill="#1F8A5B"]{fill:#62D49A}
 .case-visual{--deep:#0E1C16;--deep-2:#14271E;--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;color:var(--ink);background:var(--deep-2)}
-.entry-desk{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;--aqua-dim:rgba(98,212,154,.14);--coral:#7A1F3D;--coral-dim:rgba(122,31,61,.16);color:var(--ink);border:1px solid rgba(98,212,154,.22);background:linear-gradient(125deg,#14271E,#0D1A14 70%);box-shadow:0 30px 80px rgba(25,36,29,.14)}
-footer{background:rgba(210,189,152,.42)}
+.entry-desk{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);--aqua:#62D49A;--aqua-dim:rgba(98,212,154,.14);--coral:#7A1F3D;--coral-dim:rgba(122,31,61,.16);color:var(--ink);border:0;background:none;box-shadow:none}
+#preguntas{padding:0 0 88px}
+#preguntas>.wrap-tight{padding-top:54px}
+.faq-bridge .tag{color:rgba(25,36,29,.56)}
+.final{padding:0 0 72px;color:#F0F2E8;background:linear-gradient(125deg,#174A34,#10291E 72%,#172C25)}
+.final .entry-desk{padding:54px 34px 36px}
+.footer-bridge{padding-top:0}
+footer{padding:0 0 42px;background:rgba(210,189,152,.42);border-top:0}
 
-/* El tallo lateral recupera la narrativa botánica de la primera versión. */
-.botanical-rail{display:none;position:fixed;left:6px;top:84px;bottom:24px;width:44px;z-index:18;pointer-events:none;opacity:.72}
+/* Vid lateral argentina: crece de arriba hacia abajo y culmina en Malbec. */
+.botanical-rail{display:none;position:fixed;left:5px;top:84px;bottom:18px;width:150px;z-index:18;pointer-events:none;opacity:.84}
 .botanical-rail svg{width:100%;height:100%;overflow:visible}
-.botanical-rail .rail-stem{fill:none;stroke:var(--aqua);stroke-width:1.25;stroke-linecap:round}
-.botanical-rail .rail-leaf{fill:rgba(31,138,91,.13);stroke:var(--aqua);stroke-width:1;opacity:.18;transform-box:fill-box;transform-origin:center;transform:scale(.55);transition:opacity .55s ease,transform .55s cubic-bezier(.25,1.4,.5,1)}
-.botanical-rail .rail-leaf.on{opacity:.92;transform:scale(1)}
-.botanical-rail .rail-node{fill:var(--coral);stroke:var(--deep);stroke-width:2;opacity:.28;transition:opacity .45s ease}
-.botanical-rail .rail-node.on{opacity:1}
-@media(min-width:900px){.botanical-rail{display:block}.wrap{padding-left:34px;padding-right:26px}}
+.botanical-rail .rail-stem{fill:none;stroke:var(--aqua);stroke-width:1.35;stroke-linecap:round}
+.vine-leaf{fill:rgba(31,138,91,.16);stroke:var(--aqua);stroke-width:1;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.35) rotate(-8deg);transition:opacity .55s ease,transform .65s cubic-bezier(.25,1.4,.5,1)}
+.vine-leaf--right{transform:scale(.35) rotate(8deg)}
+.vine-tendril,.vine-fruit-stem path{fill:none;stroke:var(--aqua);stroke-width:1.1;stroke-linecap:round;opacity:0;stroke-dasharray:48;stroke-dashoffset:48;transition:opacity .35s ease,stroke-dashoffset .8s ease}
+.vine-node{fill:var(--coral);stroke:var(--deep);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);transition:opacity .4s ease,transform .45s cubic-bezier(.25,1.4,.5,1)}
+.vine-mark.on .vine-leaf{opacity:.95;transform:scale(1) rotate(0)}
+.vine-mark.on .vine-tendril,.vine-mark.on.vine-fruit-stem path{opacity:.85;stroke-dashoffset:0}
+.vine-mark.on .vine-node{opacity:1;transform:scale(1)}
+.vine-cluster{pointer-events:none}
+.vine-grape-hit{display:none;position:fixed;left:48px;bottom:18px;width:50px;height:92px;z-index:19;pointer-events:none;cursor:help}
+.vine-grape-hit.ready{pointer-events:auto}
+.grape-berry,.grape-shine{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.15);transition:opacity .4s ease,transform .5s cubic-bezier(.25,1.5,.5,1)}
+.grape-berry{fill:var(--coral);stroke:#4D1228;stroke-width:.8;filter:drop-shadow(0 2px 3px rgba(25,36,29,.2))}
+.grape-shine{fill:#F0F2E8;pointer-events:none}
+.grape-berry.on,.grape-shine.on{opacity:1;transform:scale(1)}
+.vine-label{position:absolute;left:42px;bottom:84px;display:grid;gap:1px;min-width:118px;padding:7px 9px;background:rgba(226,211,182,.95);border-left:2px solid var(--coral);box-shadow:0 8px 22px rgba(25,36,29,.12);opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
+.vine-label b{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--coral);line-height:1.1}
+.vine-label span{font-family:var(--mono);font-size:7px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-45);white-space:nowrap}
+.vine-label.on{opacity:1;transform:translateY(0)}
+body:has(.vine-grape-hit.ready:hover) .vine-label{opacity:1;transform:translateY(0)}
+@media(min-width:900px){.botanical-rail,.vine-grape-hit{display:block}.wrap{padding-left:34px;padding-right:26px}footer .foot-inner{padding-left:170px}}
 
 /* Los antiguos nervios pasan a ser pequeñas ramas entre secciones. */
 .nerve{height:46px;max-width:320px;background:none;overflow:visible}
@@ -653,15 +695,30 @@ footer{background:rgba(210,189,152,.42)}
 
 <a class="skip-link" href="#main">Saltar al contenido</a>
 <aside class="botanical-rail" aria-hidden="true">
-  <svg viewBox="0 0 44 760" preserveAspectRatio="none">
-    <path class="rail-stem" d="M23 748 C18 675 27 616 22 548 C17 475 29 408 23 337 C17 268 28 205 22 138 C19 101 23 67 21 14"/>
-    <g data-at=".08"><path class="rail-leaf" d="M21 112 C6 101 5 87 8 78 C19 81 28 91 21 112Z"/><circle class="rail-node" cx="21" cy="112" r="3"/></g>
-    <g data-at=".24"><path class="rail-leaf" d="M23 235 C38 222 40 207 36 198 C25 203 17 215 23 235Z"/><circle class="rail-node" cx="23" cy="235" r="3"/></g>
-    <g data-at=".43"><path class="rail-leaf" d="M23 373 C7 362 5 347 9 338 C20 342 29 353 23 373Z"/><circle class="rail-node" cx="23" cy="373" r="3"/></g>
-    <g data-at=".64"><path class="rail-leaf" d="M22 515 C37 503 39 488 35 479 C24 484 16 496 22 515Z"/><circle class="rail-node" cx="22" cy="515" r="3"/></g>
-    <g data-at=".83"><path class="rail-leaf" d="M22 653 C7 642 5 627 9 618 C20 622 29 633 22 653Z"/><circle class="rail-node" cx="22" cy="653" r="3"/></g>
+  <svg viewBox="0 0 150 760" preserveAspectRatio="none">
+    <path class="rail-stem" d="M24 10 C31 78 17 144 26 214 C34 282 18 349 28 420 C36 493 20 558 31 632 C35 660 39 682 48 704"/>
+    <g class="vine-mark" data-at=".10"><path class="vine-leaf" d="M26 112 C8 103 5 87 13 75 C19 83 24 84 29 75 C34 86 42 91 49 85 C48 101 40 112 26 112Z"/><circle class="vine-node" cx="26" cy="112" r="3"/></g>
+    <g class="vine-mark" data-at=".22"><path class="vine-tendril" d="M25 190 C43 176 52 188 43 198 C35 207 47 214 54 205"/><circle class="vine-node" cx="25" cy="190" r="3"/></g>
+    <g class="vine-mark" data-at=".34"><path class="vine-leaf vine-leaf--right" d="M27 270 C45 258 59 265 64 279 C54 277 49 281 52 291 C40 286 32 288 27 299 C21 288 21 279 27 270Z"/><circle class="vine-node" cx="27" cy="270" r="3"/></g>
+    <g class="vine-mark" data-at=".48"><path class="vine-tendril" d="M28 383 C10 369 4 384 13 393 C21 401 8 409 2 400"/><circle class="vine-node" cx="28" cy="383" r="3"/></g>
+    <g class="vine-mark" data-at=".60"><path class="vine-leaf" d="M29 482 C9 474 6 456 15 443 C21 452 27 453 32 443 C37 455 46 460 54 453 C53 470 44 482 29 482Z"/><circle class="vine-node" cx="29" cy="482" r="3"/></g>
+    <g class="vine-mark" data-at=".72"><path class="vine-leaf vine-leaf--right" d="M31 588 C49 576 64 583 68 598 C58 596 53 600 56 610 C44 605 36 607 31 618 C25 607 25 597 31 588Z"/><circle class="vine-node" cx="31" cy="588" r="3"/></g>
+    <g class="vine-mark vine-fruit-stem" data-at=".82"><path d="M39 659 C51 666 61 675 67 687 M50 671 C43 680 42 688 43 696"/><circle class="vine-node" cx="39" cy="659" r="3"/></g>
+    <g class="vine-cluster">
+      <circle class="grape-berry" data-grape-at=".85" cx="61" cy="685" r="7"/><circle class="grape-shine" data-grape-at=".85" cx="59" cy="682" r="1.5"/>
+      <circle class="grape-berry" data-grape-at=".87" cx="76" cy="687" r="7.5"/><circle class="grape-shine" data-grape-at=".87" cx="74" cy="684" r="1.5"/>
+      <circle class="grape-berry" data-grape-at=".89" cx="53" cy="699" r="7.5"/><circle class="grape-shine" data-grape-at=".89" cx="51" cy="696" r="1.5"/>
+      <circle class="grape-berry" data-grape-at=".91" cx="69" cy="702" r="8"/><circle class="grape-shine" data-grape-at=".91" cx="67" cy="699" r="1.6"/>
+      <circle class="grape-berry" data-grape-at=".93" cx="84" cy="701" r="7"/><circle class="grape-shine" data-grape-at=".93" cx="82" cy="698" r="1.4"/>
+      <circle class="grape-berry" data-grape-at=".94" cx="59" cy="715" r="7.5"/><circle class="grape-shine" data-grape-at=".94" cx="57" cy="712" r="1.5"/>
+      <circle class="grape-berry" data-grape-at=".95" cx="76" cy="716" r="7.5"/><circle class="grape-shine" data-grape-at=".95" cx="74" cy="713" r="1.5"/>
+      <circle class="grape-berry" data-grape-at=".97" cx="68" cy="730" r="7"/><circle class="grape-shine" data-grape-at=".97" cx="66" cy="727" r="1.4"/>
+      <circle class="grape-berry" data-grape-at=".99" cx="70" cy="743" r="5.5"/><circle class="grape-shine" data-grape-at=".99" cx="68.5" cy="741" r="1.2"/>
+    </g>
   </svg>
+  <div class="vine-label"><b>Malbec</b><span>Vitis vinifera · Argentina</span></div>
 </aside>
+<div class="vine-grape-hit" aria-hidden="true"></div>
 <noscript><p style="position:fixed;top:0;left:0;right:0;background:#7A1F3D;color:#0B1511;padding:12px;text-align:center;font-family:sans-serif;font-size:14px;z-index:999">Ynera — Consultoría de IA, datos y seguridad para PyMEs. Hablá con un founder: hola@ynera.com</p></noscript>
 
 <nav id="nav" aria-label="Navegación principal">
@@ -669,7 +726,7 @@ footer{background:rgba(210,189,152,.42)}
     <a class="logo" href="#"><span class="cell" aria-hidden="true"></span>Ynera</a>
     <div class="nav-links">
       <a href="#productos">Prueba</a>
-      <a href="#pilares">Servicios</a>
+      <a href="#servicios">Servicios</a>
       <a href="#nosotros">Nosotros</a>
       <a class="nav-cta" href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Agendá 30 min ↗</a>
       <!-- EDITÁ: tu WhatsApp real -->
@@ -681,7 +738,7 @@ footer{background:rgba(210,189,152,.42)}
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navegación móvil" aria-hidden="true" inert>
   <button class="mobile-close" type="button" aria-label="Cerrar menú">Cerrar</button>
   <a href="#productos">Prueba</a>
-  <a href="#pilares">Servicios</a>
+  <a href="#servicios">Servicios</a>
   <a href="#nosotros">Nosotros</a>
   <a href="#preguntas">Preguntas</a>
   <a class="nav-wa" href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a>
@@ -755,15 +812,41 @@ footer{background:rgba(210,189,152,.42)}
             </g>
 
             <!-- ============ CORTADERA — Chip array panicle ============ -->
-            <g class="plant-1 sway" style="--ox:110px; --oy:520px; --flex:0.6; --amp:2.2deg; --phase:0.0;" data-wx="110" data-name="Cortadera" data-species="Cortaderia selloana">
+            <g class="plant-1 sway" style="--ox:110px; --oy:520px; --flex:0.6; --amp:2.2deg; --phase:0.0;" data-wx="110" data-name="Cortadera" data-species="Cortaderia selloana · Argentina">
               <rect class="hit-area" x="40" y="110" width="150" height="415"/>
               <!-- Main stem = bus line -->
               <path class="layer-stem" d="M 110 520 Q 108 450 111 370 Q 114 290 112 210 Q 111 170 110 140" stroke-width="1.6"/>
+              <path class="layer-stem" d="M110 520 Q91 420 84 320 Q80 263 83 216" stroke-width="1" opacity=".72"/>
+              <path class="layer-stem" d="M110 520 Q129 425 134 338 Q137 285 134 238" stroke-width="1" opacity=".72"/>
               <!-- Blades = traces curvos -->
               <path class="layer-branch" d="M 110 520 Q 85 460 70 420 Q 58 380 52 360" stroke-width="1.2"/>
               <path class="layer-branch" d="M 110 520 Q 135 460 152 420 Q 164 380 170 360" stroke-width="1.2"/>
               <path class="layer-branch" d="M 110 520 Q 92 470 82 440 Q 74 410 68 390" stroke-width="1"/>
               <path class="layer-branch" d="M 110 520 Q 128 470 140 440 Q 150 410 156 390" stroke-width="1"/>
+              <!-- Mata densa y arqueada: la silueta real de la cortadera -->
+              <path class="layer-branch" d="M110 520 Q76 474 50 426 Q35 398 27 364" stroke-width=".9" opacity=".8"/>
+              <path class="layer-branch" d="M110 520 Q144 476 174 431 Q192 402 199 369" stroke-width=".9" opacity=".8"/>
+              <path class="layer-branch" d="M110 520 Q86 463 78 405 Q74 372 78 338" stroke-width=".85" opacity=".72"/>
+              <path class="layer-branch" d="M110 520 Q133 462 143 402 Q149 369 145 337" stroke-width=".85" opacity=".72"/>
+              <path class="layer-branch" d="M110 520 Q99 454 99 392 Q99 350 104 316" stroke-width=".75" opacity=".65"/>
+              <path class="layer-branch" d="M110 520 Q120 451 123 388 Q124 348 119 312" stroke-width=".75" opacity=".65"/>
+              <g class="layer-bloom" stroke="none">
+                <path d="M110 210 C88 190 84 158 91 124 C96 99 105 78 111 68 C119 82 130 103 134 128 C139 160 132 191 110 210Z" fill="rgba(240,242,232,.24)"/>
+                <path d="M83 232 C68 217 67 194 72 171 C75 154 81 139 85 132 C91 143 97 158 99 174 C102 198 97 220 83 232Z" fill="rgba(197,231,124,.17)"/>
+                <path d="M134 252 C120 238 119 216 123 195 C127 178 132 165 136 158 C142 169 148 183 149 199 C151 222 146 242 134 252Z" fill="rgba(240,242,232,.18)"/>
+              </g>
+              <!-- Pluma alta y suave, conservando puntos luminosos como semillas -->
+              <g class="flutter" style="--ox:110px; --oy:180px; --flex:1.6; --amp:4deg;">
+                <path class="layer-plume" d="M110 205 Q86 181 90 145 Q93 111 108 82" stroke="#C5E77C" stroke-width="1" opacity=".8"/>
+                <path class="layer-plume" d="M110 205 Q98 176 100 138 Q102 102 111 74" stroke="#F0F2E8" stroke-width="1.2" opacity=".82"/>
+                <path class="layer-plume" d="M111 205 Q122 174 121 137 Q120 103 113 78" stroke="#C5E77C" stroke-width="1" opacity=".8"/>
+                <path class="layer-plume" d="M111 190 Q82 166 83 139 Q83 116 96 96" stroke="#1F8A5B" stroke-width=".75" opacity=".62"/>
+                <path class="layer-plume" d="M112 190 Q137 168 136 139 Q135 114 124 94" stroke="#1F8A5B" stroke-width=".75" opacity=".62"/>
+                <path class="layer-plume" d="M105 177 Q85 159 86 145 M116 177 Q135 159 134 145 M102 155 Q86 143 88 130 M119 155 Q134 142 132 129" stroke="#F0F2E8" stroke-width=".65" opacity=".72"/>
+                <path class="layer-plume" d="M109 192 L91 181 M111 187 L129 175 M106 176 L88 164 M114 170 L134 158 M104 159 L87 147 M116 151 L134 139 M103 141 L89 129 M117 133 L132 119 M105 122 L94 109 M116 113 L126 98 M108 100 L101 88 M114 94 L120 82" stroke="#F0F2E8" stroke-width="1" opacity=".82"/>
+                <path class="layer-plume" d="M82 221 L70 211 M84 213 L96 203 M80 201 L69 191 M86 193 L97 184 M81 182 L72 171 M87 172 L95 161" stroke="#C5E77C" stroke-width=".8" opacity=".72"/>
+                <path class="layer-plume" d="M133 240 L122 229 M136 231 L147 221 M132 219 L122 208 M137 210 L148 199 M133 198 L124 187 M138 188 L146 178" stroke="#F0F2E8" stroke-width=".8" opacity=".7"/>
+              </g>
               <!-- Via-holes en base de blades -->
               <g class="via-hole"><circle cx="52" cy="360" r="2.5"/><circle class="via-hole__dot" cx="52" cy="360" r="1.3"/></g>
               <g class="via-hole"><circle cx="170" cy="360" r="2.5"/><circle class="via-hole__dot" cx="170" cy="360" r="1.3"/></g>
@@ -793,7 +876,7 @@ footer{background:rgba(210,189,152,.42)}
                   <path class="led-pad" fill="#C5E77C" d="M 112.0 137.5 L 117.22 139.0 L 117.22 142.0 L 112.0 143.5 L 106.78 142.0 L 106.78 139.0 Z" stroke="#1F8A5B" stroke-width="0.3"/>
                   <path class="led-pad" fill="#1F8A5B" d="M 110.0 152.5 L 115.22 154.0 L 115.22 157.0 L 110.0 158.5 L 104.78 157.0 L 104.78 154.0 Z" stroke="#1F8A5B" stroke-width="0.3"/>
                   <!-- Bordes del array (rectángulo PCB) -->
-                  <rect x="85" y="105" width="50" height="80" rx="3" fill="none" stroke="#1F8A5B" stroke-width="0.5" opacity="0.4" stroke-dasharray="2 1"/>
+                  <rect x="85" y="105" width="50" height="80" rx="20" fill="none" stroke="#1F8A5B" stroke-width="0.4" opacity="0.12" stroke-dasharray="2 3"/>
                 </g>
               </g>
             </g>
@@ -808,10 +891,35 @@ footer{background:rgba(210,189,152,.42)}
               <path class="layer-branch" stroke-width="1.5" d="M 215 340 Q 236 320 258 305"/>
               <path class="layer-branch" stroke-width="1.2" d="M 216 255 Q 204 245 196 236"/>
               <path class="layer-branch" stroke-width="1.2" d="M 216 250 Q 228 240 238 230"/>
+              <!-- Copa baja y extendida de arbolito ribereño -->
+              <path class="layer-branch" stroke-width="1.15" d="M213 382 Q184 358 164 334 Q151 319 143 298"/>
+              <path class="layer-branch" stroke-width="1.15" d="M214 370 Q244 346 267 321 Q278 309 284 291"/>
+              <path class="layer-branch" stroke-width="1" d="M187 337 Q168 324 154 305 M239 339 Q257 325 270 306"/>
               <!-- Via-holes en nudos del tronco -->
               <g class="via-hole"><circle cx="213" cy="400" r="2.5"/><circle class="via-hole__dot" cx="213" cy="400" r="1.3"/></g>
               <g class="via-hole"><circle cx="215" cy="290" r="2.5"/><circle class="via-hole__dot" cx="215" cy="290" r="1.3"/></g>
               <g class="via-hole"><circle cx="216" cy="240" r="2.5"/><circle class="via-hole__dot" cx="216" cy="240" r="1.3"/></g>
+
+              <!-- Hojas trifoliadas: recuperan la lectura de ceibo -->
+              <g class="layer-leaf" stroke="#1F8A5B" stroke-width=".65" fill="rgba(31,138,91,.2)">
+                <path d="M164 334 Q146 320 151 307 Q167 308 174 323 Q170 331 164 334Z"/>
+                <path d="M154 305 Q137 292 142 279 Q158 281 165 296 Q160 303 154 305Z"/>
+                <path d="M267 321 Q284 306 280 293 Q263 295 257 310 Q261 318 267 321Z"/>
+                <path d="M270 306 Q287 291 283 278 Q266 280 260 295 Q264 303 270 306Z"/>
+                <path d="M188 334 Q175 315 182 304 Q198 311 200 326 Q195 333 188 334Z"/>
+                <path d="M239 334 Q251 315 244 304 Q228 311 227 326 Q232 333 239 334Z"/>
+                <path d="M203 276 Q188 260 194 248 Q210 253 214 267 Q209 274 203 276Z"/>
+                <path d="M229 273 Q243 256 237 245 Q221 251 218 265 Q223 272 229 273Z"/>
+              </g>
+
+              <!-- Flores coral, de pétalos curvos, no simples LEDs circulares -->
+              <g class="layer-bloom" fill="rgba(122,31,61,.34)" stroke="#7A1F3D" stroke-width=".8">
+                <path d="M195 233 Q184 220 191 210 Q204 214 207 226 Q202 232 195 233Z"/>
+                <path d="M216 234 Q205 217 214 207 Q228 213 228 226 Q222 233 216 234Z"/>
+                <path d="M238 229 Q230 212 240 204 Q252 212 250 224 Q245 229 238 229Z"/>
+                <path d="M168 316 Q158 302 165 293 Q177 297 179 309 Q174 315 168 316Z"/>
+                <path d="M258 300 Q250 286 259 278 Q270 284 268 295 Q264 300 258 300Z"/>
+              </g>
 
               <!-- FLORES = LED pads GRANDES con anillos brillantes -->
               <g class="layer-bloom" stroke="none">
@@ -856,7 +964,7 @@ footer{background:rgba(210,189,152,.42)}
             </g>
 
             <!-- ============ CALAFATE — SMD components ============ -->
-            <g class="plant-3 sway" style="--ox:320px; --oy:520px; --flex:0.75; --amp:1.8deg; --phase:0.5;" data-wx="320" data-name="Calafate" data-species="Berberis microphylla">
+            <g class="plant-3 sway" style="--ox:320px; --oy:520px; --flex:0.75; --amp:1.8deg; --phase:0.5;" data-wx="320" data-name="Calafate" data-species="Berberis microphylla · Patagonia">
               <rect class="hit-area" x="280" y="395" width="80" height="130"/>
               <path class="layer-stem" d="M 320 520 Q 319 495 321 470 Q 322 445 320 420" stroke-width="1.6"/>
               <path class="layer-branch" d="M 321 470 Q 305 462 292 452" stroke-width="1.2"/>
@@ -865,6 +973,25 @@ footer{background:rgba(210,189,152,.42)}
               <path class="layer-branch" d="M 321 450 Q 340 442 352 430" stroke-width="1.2"/>
               <path class="layer-branch" d="M 320 420 Q 312 410 306 402" stroke-width="1.2"/>
               <path class="layer-branch" d="M 320 420 Q 328 410 334 402" stroke-width="1.2"/>
+              <!-- Arbusto patagónico bajo, denso y espinoso -->
+              <path class="layer-branch" d="M320 520 Q300 490 284 468 Q276 456 270 440" stroke-width=".9"/>
+              <path class="layer-branch" d="M320 520 Q340 490 359 468 Q367 456 372 439" stroke-width=".9"/>
+              <path class="layer-branch" d="M301 461 l-8 -11 M340 461 l9 -11 M291 440 l-8 -9 M352 439 l8 -9" stroke-width=".75"/>
+              <g class="layer-leaf" fill="rgba(31,138,91,.25)" stroke="#1F8A5B" stroke-width=".5">
+                <ellipse cx="282" cy="463" rx="6" ry="3" transform="rotate(28 282 463)"/>
+                <ellipse cx="296" cy="447" rx="6" ry="3" transform="rotate(-24 296 447)"/>
+                <ellipse cx="307" cy="429" rx="5.5" ry="2.8" transform="rotate(25 307 429)"/>
+                <ellipse cx="336" cy="429" rx="5.5" ry="2.8" transform="rotate(-25 336 429)"/>
+                <ellipse cx="348" cy="447" rx="6" ry="3" transform="rotate(24 348 447)"/>
+                <ellipse cx="362" cy="462" rx="6" ry="3" transform="rotate(-28 362 462)"/>
+                <ellipse cx="315" cy="455" rx="5" ry="2.6" transform="rotate(-20 315 455)"/>
+                <ellipse cx="328" cy="455" rx="5" ry="2.6" transform="rotate(20 328 455)"/>
+              </g>
+              <g class="layer-bloom" fill="#7A1F3D" stroke="#4D1228" stroke-width=".5">
+                <circle cx="289" cy="435" r="3.2"/><circle cx="302" cy="414" r="3"/>
+                <circle cx="340" cy="413" r="3"/><circle cx="355" cy="434" r="3.2"/>
+                <circle cx="278" cy="454" r="2.8"/><circle cx="365" cy="454" r="2.8"/>
+              </g>
               <!-- Leaves = pads rectangulares con via-hole -->
               <g class="layer-leaf" stroke="none">
                 <rect x="291" y="450" width="6" height="4" rx="0.5" fill="#1F8A5B" opacity="0.4"/>
@@ -935,8 +1062,8 @@ footer{background:rgba(210,189,152,.42)}
             </g>
 
             <!-- ============ JACARANDÁ — Transistor array ============ -->
-            <g class="plant-4 sway" style="--ox:420px; --oy:520px; --flex:0.7; --amp:2deg; --phase:0.75;" data-wx="420" data-name="Jacarandá" data-species="Jacaranda mimosifolia">
-              <rect class="hit-area" x="395" y="270" width="85" height="255"/>
+            <g class="plant-4 sway" style="--ox:420px; --oy:520px; --flex:0.7; --amp:2deg; --phase:0.75;" data-wx="420" data-name="Jacarandá" data-species="Jacaranda mimosifolia · Noroeste argentino">
+              <rect class="hit-area" x="370" y="245" width="120" height="280"/>
               <path class="layer-stem" stroke-width="1.8" d="M 420 520 Q 422 470 427 420 Q 434 370 440 330 Q 445 300 450 280"/>
               <path class="layer-branch" stroke-width="1.2" d="M 428 410 Q 444 405 458 400"/>
               <path class="layer-branch" stroke-width="1.2" d="M 428 410 Q 412 405 398 400"/>
@@ -948,6 +1075,30 @@ footer{background:rgba(210,189,152,.42)}
               <path class="layer-branch" stroke-width="1.2" d="M 444 320 Q 432 318 420 318"/>
               <path class="layer-branch" stroke-width="1.2" d="M 448 295 Q 460 292 470 292"/>
               <path class="layer-branch" stroke-width="1.2" d="M 448 295 Q 436 293 426 294"/>
+              <!-- Copa abierta de jacarandá, con ramas que se separan del eje -->
+              <path class="layer-branch" stroke-width="1.05" d="M435 368 Q408 349 389 326 Q382 315 378 300"/>
+              <path class="layer-branch" stroke-width="1.05" d="M438 354 Q463 339 478 318 Q484 307 486 294"/>
+              <path class="layer-branch" stroke-width=".9" d="M404 341 Q392 328 386 312 M462 336 Q474 324 480 309"/>
+              <path class="layer-branch" stroke-width=".85" d="M424 325 Q405 309 398 291 M452 320 Q469 304 474 286"/>
+              <!-- Follaje bipinnado: pequeños folíolos enfrentados -->
+              <g class="layer-leaf" fill="rgba(31,138,91,.25)" stroke="#1F8A5B" stroke-width=".35">
+                <ellipse cx="385" cy="300" rx="5" ry="2.3" transform="rotate(32 385 300)"/><ellipse cx="393" cy="307" rx="5" ry="2.3" transform="rotate(-18 393 307)"/>
+                <ellipse cx="390" cy="318" rx="5" ry="2.3" transform="rotate(25 390 318)"/><ellipse cx="401" cy="322" rx="5" ry="2.3" transform="rotate(-20 401 322)"/>
+                <ellipse cx="402" cy="291" rx="5" ry="2.3" transform="rotate(28 402 291)"/><ellipse cx="411" cy="300" rx="5" ry="2.3" transform="rotate(-22 411 300)"/>
+                <ellipse cx="418" cy="310" rx="5" ry="2.3" transform="rotate(25 418 310)"/><ellipse cx="428" cy="315" rx="5" ry="2.3" transform="rotate(-18 428 315)"/>
+                <ellipse cx="474" cy="287" rx="5" ry="2.3" transform="rotate(-28 474 287)"/><ellipse cx="466" cy="297" rx="5" ry="2.3" transform="rotate(20 466 297)"/>
+                <ellipse cx="482" cy="301" rx="5" ry="2.3" transform="rotate(-30 482 301)"/><ellipse cx="473" cy="310" rx="5" ry="2.3" transform="rotate(18 473 310)"/>
+                <ellipse cx="468" cy="321" rx="5" ry="2.3" transform="rotate(-24 468 321)"/><ellipse cx="457" cy="326" rx="5" ry="2.3" transform="rotate(18 457 326)"/>
+                <ellipse cx="400" cy="338" rx="5" ry="2.3" transform="rotate(22 400 338)"/><ellipse cx="414" cy="343" rx="5" ry="2.3" transform="rotate(-18 414 343)"/>
+                <ellipse cx="455" cy="342" rx="5" ry="2.3" transform="rotate(18 455 342)"/><ellipse cx="469" cy="336" rx="5" ry="2.3" transform="rotate(-20 469 336)"/>
+              </g>
+              <!-- Panículas violetas, reconocibles como floración de jacarandá -->
+              <g class="layer-bloom" fill="rgba(122,31,61,.38)" stroke="#7A1F3D" stroke-width=".45">
+                <circle cx="381" cy="292" r="4"/><circle cx="390" cy="287" r="3.6"/><circle cx="398" cy="294" r="3.5"/>
+                <circle cx="412" cy="278" r="4"/><circle cx="421" cy="273" r="3.8"/><circle cx="429" cy="280" r="3.5"/>
+                <circle cx="452" cy="274" r="4"/><circle cx="461" cy="268" r="3.7"/><circle cx="470" cy="276" r="3.8"/>
+                <circle cx="478" cy="292" r="3.7"/><circle cx="486" cy="286" r="3.4"/>
+              </g>
               <!-- Solder dots en bifurcaciones -->
               <g class="layer-bloom">
                 <circle class="solder-dot" cx="428" cy="410" r="2"/>
@@ -1038,17 +1189,24 @@ footer{background:rgba(210,189,152,.42)}
           <g id="water-drops"></g>
         </svg>
       <p class="garden-caption"><span>jardin de circuitos vivos</span><b>regar &rarr; crecer &rarr; mejorar</b></p>
-    </div>    <div class="synthesis-head reveal d1">
-      <div>
-        <span class="tag"><span class="cell"></span>DEL JARDÍN AL SISTEMA</span>
-        <h2 style="margin-top:18px">Tecnología que crece, pero con <em>control</em>.</h2>
-      </div>
-      <p class="lead">Lo orgánico inspira la forma de trabajar: entender el entorno, intervenir con cuidado y observar el resultado. Las escenas muestran qué cambia cuando ese criterio llega a producción.</p>
     </div>
-    <div class="hero-protocol" id="heroProtocol">
+  </div>
+</header>
+
+<!-- ═══ SERVICIOS · UNA SOLA COMPOSICIÓN ═══ -->
+<section class="services-section" id="servicios">
+  <div class="services-transition services-transition--in" aria-hidden="true"></div>
+  <div class="hero-protocol" id="heroProtocol">
+    <div class="synthesis-head reveal d1">
+      <div>
+        <span class="tag"><span class="cell"></span>SERVICIOS · DEL JARDÍN AL SISTEMA</span>
+        <h2>Podés venir por una parte. Sabemos mirar el <em>todo</em>.</h2>
+      </div>
+      <p class="lead">IA, datos y seguridad son servicios independientes. Los integramos únicamente cuando el problema lo necesita.</p>
+    </div>
       <!-- 01 · Datos: sistemas separados que terminan en un registro operativo. -->
       <div class="protocol-row">
-        <div class="protocol-copy"><span>01 · Datos</span><h3>De fragmentos a decisiones.</h3><p>Conectamos fuentes dispersas y las convertimos en información operativa, legible y confiable.</p></div>
+        <div class="protocol-copy"><span>01 · Datos</span><h3>Cuando la información llega tarde, incompleta o nadie confía en ella.</h3><p>Pipelines, calidad de datos y tableros para decidir.</p><div class="protocol-outcome"><b>Salida concreta</b>Datos listos para usar, no para discutir.<a href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Hablemos de datos ↗</a></div></div>
       <svg class="hero-story" viewBox="0 0 540 118" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <line class="story-guide" x1="14" y1="106" x2="522" y2="106"/><line class="story-guide story-guide--aqua" x1="14" y1="23" x2="84" y2="23"/>
         <circle class="story-dot" cx="14" cy="23" r="3"/>
@@ -1071,7 +1229,7 @@ footer{background:rgba(210,189,152,.42)}
 
       <!-- 02 · Seguridad: un acceso se detecta y queda bloqueado. -->
       <div class="protocol-row">
-        <div class="protocol-copy"><span>02 · Seguridad</span><h3>Detectar antes del daño.</h3><p>Protegemos sistemas, APIs y datos para que un intento de acceso termine afuera, no adentro.</p></div>
+        <div class="protocol-copy"><span>02 · Seguridad</span><h3>Cuando tu operación funciona, pero no sabés qué tan expuesta está.</h3><p>Auditoría, hardening, seguridad de APIs y protección técnica de datos.</p><div class="protocol-outcome"><b>Salida concreta</b>Una operación más segura y preparada para crecer.<a href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Hablemos de seguridad ↗</a></div></div>
       <svg class="hero-story" viewBox="0 0 540 118" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <line class="story-guide" x1="14" y1="106" x2="522" y2="106"/><line class="story-guide story-guide--aqua" x1="14" y1="23" x2="84" y2="23"/>
         <circle class="story-dot" cx="14" cy="23" r="3"/>
@@ -1099,7 +1257,7 @@ footer{background:rgba(210,189,152,.42)}
 
       <!-- 03 · IA: una rutina resuelve una cola que estaba trabada. -->
       <div class="protocol-row">
-        <div class="protocol-copy"><span>03 · IA aplicada</span><h3>Menos fricción, más capacidad.</h3><p>Automatizamos procesos repetitivos con revisión humana, trazabilidad y un resultado que el equipo puede usar.</p></div>
+        <div class="protocol-copy"><span>03 · IA aplicada</span><h3>Cuando el trabajo repetitivo frena a tu equipo.</h3><p>Diagnóstico, automatizaciones con LLMs y asistentes sobre tus documentos.</p><div class="protocol-outcome"><b>Salida concreta</b>Procesos más rápidos, con revisión humana y trazabilidad.<a href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Hablemos de IA ↗</a></div></div>
       <svg class="hero-story" viewBox="0 0 540 118" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <line class="story-guide" x1="14" y1="106" x2="522" y2="106"/><line class="story-guide story-guide--aqua" x1="14" y1="23" x2="84" y2="23"/>
         <circle class="story-dot" cx="14" cy="23" r="3"/>
@@ -1126,15 +1284,15 @@ footer{background:rgba(210,189,152,.42)}
       </div>
     </div>
   </div>
-</header>
-
-<div class="nerve" aria-hidden="true"></div>
+</section>
 
 <!-- ═══ PRUEBA EN PRODUCCIÓN ═══ -->
 <section id="productos">
+  <div class="product-bridge">
+    <div class="wrap"><span class="tag reveal"><span class="cell"></span>PRUEBA EN PRODUCCIÓN</span></div>
+  </div>
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag reveal"><span class="cell"></span>PRUEBA EN PRODUCCIÓN</span>
       <h2 class="reveal d1" style="margin-top:20px">No te traemos una demo. Te mostramos sistemas que <em>siguen trabajando</em>.</h2>
       <p class="lead reveal d2">Aira, CDI y ReservaYá nacieron de problemas de tres industrias distintas. Los construimos, operamos y mejoramos; de ahí sale el criterio con el que trabajamos.</p>
       <div class="section-rule reveal d3" aria-hidden="true"></div>
@@ -1185,49 +1343,13 @@ footer{background:rgba(210,189,152,.42)}
   </div>
 </section>
 
-<div class="nerve" style="--nd:4s" aria-hidden="true"></div>
-
-<!-- ═══ SERVICIOS ═══ -->
-<section id="pilares">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag reveal"><span class="cell"></span>SERVICIOS</span>
-      <h2 class="reveal d1" style="margin-top:20px">Podés venir por una parte. Sabemos mirar el <em>todo</em>.</h2>
-      <p class="lead reveal d2">IA, datos y seguridad son servicios independientes. Los integramos únicamente cuando el problema lo necesita.</p>
-      <div class="section-rule reveal d3" aria-hidden="true"></div>
-    </div>
-
-    <div class="service-index">
-      <article class="service-row reveal d1" style="--pc:#7A1F3D">
-        <span class="service-index-no">01</span>
-        <div class="service-name"><span>Servicio independiente</span><h3>IA aplicada</h3></div>
-        <div class="service-detail"><p><strong>Cuando el trabajo repetitivo frena a tu equipo.</strong></p><p>Diagnóstico, automatizaciones con LLMs y asistentes sobre tus documentos.</p></div>
-        <div class="service-outcome"><b>Salida concreta</b>Procesos más rápidos, con revisión humana y trazabilidad.<a class="service-link" href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Hablemos de IA ↗</a></div>
-      </article>
-      <article class="service-row reveal d2" style="--pc:#1F8A5B">
-        <span class="service-index-no">02</span>
-        <div class="service-name"><span>Servicio independiente</span><h3>Datos</h3></div>
-        <div class="service-detail"><p><strong>Cuando la información llega tarde, incompleta o nadie confía en ella.</strong></p><p>Pipelines, calidad de datos y tableros para decidir.</p></div>
-        <div class="service-outcome"><b>Salida concreta</b>Datos listos para usar, no para discutir.<a class="service-link" href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Hablemos de datos ↗</a></div>
-      </article>
-      <article class="service-row reveal d3" style="--pc:#C5E77C">
-        <span class="service-index-no">03</span>
-        <div class="service-name"><span>Servicio independiente</span><h3>Seguridad</h3></div>
-        <div class="service-detail"><p><strong>Cuando tu operación funciona, pero no sabés qué tan expuesta está.</strong></p><p>Auditoría, hardening, seguridad de APIs y protección técnica de datos.</p></div>
-        <div class="service-outcome"><b>Salida concreta</b>Una operación más segura y preparada para crecer.<a class="service-link" href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Hablemos de seguridad ↗</a></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<div class="nerve nerve-static" aria-hidden="true"></div>
-
-
 <!-- ═══ NOSOTROS ═══ -->
 <section id="nosotros">
+  <div class="about-bridge">
+    <div class="wrap"><span class="tag reveal"><span class="cell"></span>QUIÉNES SOMOS</span></div>
+  </div>
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag reveal"><span class="cell"></span>QUIÉNES SOMOS</span>
       <h2 class="reveal d1" style="margin-top:20px">Dos perfiles. Un modo de trabajar: <em>entender, construir, probar</em>.</h2>
     </div>
     <div class="origin-prose reveal d1" style="max-width:62ch;margin-bottom:40px">
@@ -1396,13 +1518,13 @@ footer{background:rgba(210,189,152,.42)}
   </div>
 </section>
 
-<div class="nerve nerve-static" aria-hidden="true"></div>
-
 <!-- ═══ FAQ ═══ -->
 <section id="preguntas">
+  <div class="faq-bridge">
+    <div class="wrap-tight"><span class="tag reveal"><span class="cell"></span>PREGUNTAS FRECUENTES</span></div>
+  </div>
   <div class="wrap-tight">
     <div class="sec-head">
-      <span class="tag reveal"><span class="cell"></span>PREGUNTAS FRECUENTES</span>
       <h2 class="reveal d1" style="margin-top:20px">Antes de empezar, lo <em>importante</em>.</h2>
     </div>
     <details class="faq-item reveal d1"><summary>¿Puedo contratarlos solo para IA, datos o seguridad?</summary><p>Sí. Cada área se trabaja por separado. Si el problema se beneficia de combinar disciplinas, lo proponemos; no es una condición para trabajar con nosotros.</p></details>
@@ -1415,6 +1537,7 @@ footer{background:rgba(210,189,152,.42)}
 
 <!-- ═══ MESA DE ENTRADA ═══ -->
 <section class="final">
+  <div class="final-bridge" aria-hidden="true"></div>
   <div class="wrap">
     <div class="entry-desk">
       <div>
@@ -1437,6 +1560,7 @@ footer{background:rgba(210,189,152,.42)}
 </main>
 
 <footer>
+  <div class="footer-bridge" aria-hidden="true"></div>
   <div class="wrap foot-inner">
     <a class="logo" href="#" style="font-size:18px"><span class="cell" aria-hidden="true"></span>Ynera</a>
     <span>Construimos antes de aconsejar.</span>
@@ -1455,9 +1579,13 @@ footer{background:rgba(210,189,152,.42)}
   function onScroll(){ if(nav) nav.classList.toggle('scrolled', window.scrollY > 24); }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  /* tallo botánico: crece y abre hojas a medida que avanza la página */
+  /* vid Malbec: nace arriba, desciende con el scroll y fructifica al final */
   var railPath = document.querySelector('.botanical-rail .rail-stem');
   var railMarks = document.querySelectorAll('.botanical-rail [data-at]');
+  var grapeParts = document.querySelectorAll('.botanical-rail [data-grape-at]');
+  var vineCluster = document.querySelector('.botanical-rail .vine-cluster');
+  var vineGrapeHit = document.querySelector('.vine-grape-hit');
+  var vineLabel = document.querySelector('.botanical-rail .vine-label');
   if(railPath){
     var railLength = railPath.getTotalLength();
     railPath.style.strokeDasharray = railLength;
@@ -1468,12 +1596,24 @@ footer{background:rgba(210,189,152,.42)}
       railPath.style.strokeDashoffset = (railLength * (1 - progress)).toFixed(2);
       railMarks.forEach(function(mark){
         var active = progress >= parseFloat(mark.getAttribute('data-at') || 0);
-        mark.querySelectorAll('.rail-leaf,.rail-node').forEach(function(part){ part.classList.toggle('on', active); });
+        mark.classList.toggle('on', active);
       });
+      grapeParts.forEach(function(part){
+        part.classList.toggle('on', progress >= parseFloat(part.getAttribute('data-grape-at') || 1));
+      });
+      if(vineGrapeHit) vineGrapeHit.classList.toggle('ready', progress >= .985);
+      if(vineLabel && progress < .85) vineLabel.classList.remove('on');
     }
     window.addEventListener('scroll', updateBotanicalRail, {passive:true});
     window.addEventListener('resize', updateBotanicalRail, {passive:true});
     updateBotanicalRail();
+  }
+  var vineHoverTarget = vineGrapeHit || vineCluster;
+  if(vineHoverTarget && vineLabel){
+    vineHoverTarget.addEventListener('mouseenter', function(){
+      if(document.querySelector('.botanical-rail .grape-berry.on')) vineLabel.classList.add('on');
+    });
+    vineHoverTarget.addEventListener('mouseleave', function(){ vineLabel.classList.remove('on'); });
   }
 
   /* scroll-freeze: congelar animaciones durante el scroll */
@@ -1859,7 +1999,7 @@ footer{background:rgba(210,189,152,.42)}
   }
 
   /* scrollspy: highlight nav link según sección visible */
-  var sections = ['productos','pilares','nosotros','preguntas'].map(function(id){
+  var sections = ['servicios','productos','nosotros','preguntas'].map(function(id){
     return document.getElementById(id);
   }).filter(Boolean);
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
