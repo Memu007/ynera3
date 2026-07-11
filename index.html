@@ -204,16 +204,16 @@ nav#nav.scrolled{background:rgba(11,21,17,.94);border-color:var(--ink-12)}
 .hero-story .story-security-normal{animation:heroSecurityNormal 7s linear infinite}
 .hero-story .story-security-normal-line{fill:none;stroke:var(--aqua);stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .hero-story .story-security-alert{opacity:0;animation:heroSecurityAlert 7s linear infinite}
-.hero-story .story-security-alert-fill{fill:rgba(167,130,255,.28);stroke:var(--coral);stroke-width:1.8;vector-effect:non-scaling-stroke}
+.hero-story .story-security-alert-fill{fill:rgba(255,74,86,.36);stroke:#FF5B66;stroke-width:1.8;vector-effect:non-scaling-stroke}
 .hero-story .story-security-alert-mark{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.hero-story .story-security-detect{opacity:0;fill:none;stroke:var(--coral);stroke-width:1.35;stroke-dasharray:3 5;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center;animation:heroSecurityDetect 7s ease-out infinite}
+.hero-story .story-security-detect{opacity:0;fill:none;stroke:#FF5B66;stroke-width:1.35;stroke-dasharray:3 5;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center;animation:heroSecurityDetect 7s ease-out infinite}
 .hero-story .story-rig{opacity:0;will-change:opacity}
 .hero-story .story-rig-bone{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .hero-story .story-rig-bone--torso{stroke-width:3.4}
 .hero-story .story-rig-head{fill:var(--ink);stroke:var(--deep);stroke-width:.9;vector-effect:non-scaling-stroke}
 .hero-story .story-security-mask{fill:var(--deep);opacity:.96}
 .hero-story .story-security-speed{opacity:0;fill:none;stroke:var(--coral);stroke-width:2.4;stroke-linecap:round;vector-effect:non-scaling-stroke;will-change:opacity}
-.hero-story .story-security-trace{opacity:0;fill:none;stroke:var(--coral);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:13 8;vector-effect:non-scaling-stroke;animation:heroSecurityTrace 7s linear infinite}
+.hero-story .story-security-trace{opacity:0;fill:none;stroke:#FF5B66;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:13 8;vector-effect:non-scaling-stroke;animation:heroSecurityTrace 7s linear infinite}
 @keyframes heroSecurityNormal{0%,34%{opacity:1}38%,74%{opacity:0}78%,100%{opacity:1}}
 @keyframes heroSecurityAlert{0%,34%{opacity:0}38%,72%{opacity:1}76%,100%{opacity:0}}
 @keyframes heroSecurityDetect{0%,34%{opacity:0;transform:scale(.95)}38%{opacity:1;transform:scale(1)}72%{opacity:.78;transform:scale(1.04)}76%,100%{opacity:0;transform:scale(1.06)}}
@@ -544,6 +544,41 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
   .hero-protocol{width:100%;margin:0}
 }
 
+/* Jardín original de Ynera: regadera, crecimiento por capas y viento suave. */
+.hero-visual.hero-garden{grid-column:2;grid-row:1;position:relative;display:flex;align-items:center;justify-content:center;align-self:center;min-height:520px;width:100%;padding:0;border:0;background:none;box-shadow:none;overflow:visible}
+.hero-visual.hero-garden::before{display:none}
+.hero-visual.hero-garden svg{display:block;width:100%;max-width:520px;height:auto;overflow:visible}
+.hero-visual .garden{filter:drop-shadow(0 20px 36px rgba(0,0,0,.12))}
+.hero-visual .garden-caption{position:absolute;left:4%;right:4%;bottom:0;padding:11px 2px 0}
+.plant-tooltip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-100%) translateY(-8px);background:rgba(23,42,32,.96);border:1px solid rgba(112,214,154,.3);border-radius:5px;padding:8px 12px;font-family:var(--serif);font-size:12px;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;z-index:10;transition:opacity .35s ease,transform .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.plant-tooltip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:rgba(23,42,32,.96)}
+.plant-tooltip.show{opacity:1;transform:translate(-50%,-100%) translateY(-14px)}
+.plant-tooltip .species{font-style:italic;color:var(--ink-70);font-size:11px;display:block;margin-top:2px}
+.garden g[class*="plant-"]{cursor:crosshair;transition:filter .3s ease}
+.garden g[class*="plant-"]:hover{filter:brightness(1.18) saturate(1.15)}
+.garden .hit-area{fill:transparent;stroke:none;pointer-events:all}
+
+/* Semillas y regadera: la secuencia original activa el crecimiento al caer el agua. */
+.garden #intro-can path,.garden #intro-can line,.garden #intro-can ellipse,.garden #intro-can circle,.garden #intro-seed ellipse,.garden #intro-seed path{stroke-dasharray:none!important;stroke-dashoffset:0!important;animation:none!important}
+@keyframes seedFall{0%{opacity:0;transform:translateY(-60px)}15%{opacity:1}75%{opacity:1;transform:translateY(515px)}90%{opacity:1;transform:translateY(515px) scale(.7,.5)}100%{opacity:0;transform:translateY(515px) scale(.5,.3)}}
+#intro-seed .seed{transform-box:fill-box;opacity:0;animation:seedFall 1.3s cubic-bezier(.4,.1,.7,1) both}
+#intro-seed .s1{animation-delay:.15s}#intro-seed .s2{animation-delay:.25s}#intro-seed .s3{animation-delay:.35s}#intro-seed .s4{animation-delay:.45s}#intro-seed .s5{animation-delay:.55s}#intro-seed .s6{animation-delay:.65s}
+#intro-can{transform-box:fill-box;transform-origin:12px 46px;opacity:0;transform:translate(-80px,40px) rotate(0deg);will-change:transform,opacity}
+.garden .layer-root{stroke-dasharray:60;stroke-dashoffset:60}.garden .layer-stem{stroke-dasharray:450;stroke-dashoffset:450}.garden .layer-branch{stroke-dasharray:180;stroke-dashoffset:180}
+.garden .layer-leaf,.garden .layer-bloom{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2)}
+.garden .layer-plume{stroke-dasharray:50;stroke-dashoffset:50;opacity:0}.garden .layer-ground{opacity:0;animation:gardenGroundIn .4s 2.6s forwards}
+@keyframes gardenDrawLayer{to{stroke-dashoffset:0}}@keyframes gardenBloomIn{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}@keyframes gardenPlumeFan{0%{stroke-dashoffset:50;opacity:0}20%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}@keyframes gardenGroundIn{to{opacity:.5}}
+.garden.grown .layer-root{animation:gardenDrawLayer .9s cubic-bezier(.4,.1,.4,1) forwards}.garden.grown .layer-stem{animation:gardenDrawLayer 1.6s cubic-bezier(.2,.6,.2,1) forwards}.garden.grown .layer-branch{animation:gardenDrawLayer 1s cubic-bezier(.3,.6,.3,1) forwards}.garden.grown .layer-leaf{animation:gardenBloomIn .7s cubic-bezier(.3,1.4,.5,1) forwards}.garden.grown .layer-bloom{animation:gardenBloomIn .8s cubic-bezier(.25,1.5,.5,1) forwards}.garden.grown .layer-plume{animation:gardenPlumeFan 1.1s cubic-bezier(.2,.7,.3,1) forwards}
+.garden.grown .plant-1 .layer-root{animation-delay:0s}.garden.grown .plant-2 .layer-root{animation-delay:.25s}.garden.grown .plant-3 .layer-root{animation-delay:.5s}.garden.grown .plant-4 .layer-root{animation-delay:.75s}
+.garden.grown .plant-1 .layer-stem{animation-delay:.7s}.garden.grown .plant-2 .layer-stem{animation-delay:.95s}.garden.grown .plant-3 .layer-stem{animation-delay:1.2s}.garden.grown .plant-4 .layer-stem{animation-delay:1.45s}
+.garden.grown .plant-1 .layer-branch{animation-delay:1.6s}.garden.grown .plant-2 .layer-branch{animation-delay:1.85s}.garden.grown .plant-3 .layer-branch{animation-delay:2.1s}.garden.grown .plant-4 .layer-branch{animation-delay:2.35s}
+.garden.grown .plant-1 .layer-leaf{animation-delay:2.3s}.garden.grown .plant-2 .layer-leaf{animation-delay:2.55s}.garden.grown .plant-3 .layer-leaf{animation-delay:2.8s}.garden.grown .plant-4 .layer-leaf{animation-delay:3.05s}
+.garden.grown .plant-1 .layer-bloom,.garden.grown .plant-1 .layer-plume{animation-delay:3.8s}.garden.grown .plant-2 .layer-bloom,.garden.grown .plant-2 .layer-plume{animation-delay:4.05s}.garden.grown .plant-3 .layer-bloom,.garden.grown .plant-3 .layer-plume{animation-delay:4.3s}.garden.grown .plant-4 .layer-bloom,.garden.grown .plant-4 .layer-plume{animation-delay:4.55s}
+.garden .sway{transform-box:fill-box;transform-origin:var(--ox,50%) var(--oy,100%);transform:rotate(calc(var(--wind,0) * var(--flex,1) * var(--amp,8deg))) skewX(calc(var(--wind,0) * var(--flex,1) * var(--amp,8deg) * -.35));transition:none}.garden .flutter{transform-box:fill-box;transform-origin:var(--ox,50%) var(--oy,100%);transform:rotate(calc(var(--gust,0) * var(--flex,1) * var(--amp,4deg)))}
+@keyframes gardenLedPulse{0%,100%{opacity:1}45%{opacity:.85}50%{opacity:.3}55%{opacity:.85}}.garden .led-pad{animation:gardenLedPulse 3s ease-in-out infinite}.garden .plant-1 .led-pad{animation-duration:2.5s}.garden .plant-2 .led-pad{animation-delay:.4s;animation-duration:3.2s}.garden .plant-3 .led-pad{animation-delay:.8s;animation-duration:2.8s}.garden .plant-4 .led-pad{animation-delay:1.2s;animation-duration:3.5s}
+@media(max-width:920px){.hero-visual.hero-garden{grid-column:auto;grid-row:auto;order:0;min-height:390px;width:min(600px,100%);justify-self:center}.hero-visual .garden-caption{bottom:6px}}
+@media(max-width:620px){.hero-visual.hero-garden{min-height:360px}.hero-visual.hero-garden svg{max-width:390px}.hero-visual .garden-caption{font-size:7.5px}}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
@@ -553,6 +588,9 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
   .story-data-merge,.story-data-table,.story-data-row,.story-security-alert,.story-security-detect,.story-security-trace,.story-ai-solution{opacity:1!important;transform:none!important}
   .story-ai-flow{transform:translateX(41px)!important}
   .garden-drop{display:none!important}
+  .garden .layer-root,.garden .layer-stem,.garden .layer-branch,.garden .layer-plume{stroke-dashoffset:0!important;opacity:1!important}
+  .garden .layer-leaf,.garden .layer-bloom{opacity:1!important;transform:none!important}
+  .garden #intro-can,.garden #intro-seed{display:none!important}
 }
 </style>
 </head>
@@ -602,59 +640,340 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
       <a class="hero-proof" href="#productos">Tres sistemas en producción · ver la prueba ↓</a>
       <p class="hero-note">respondemos en <b>&lt; 24 hs hábiles</b> · hablás directo con un founder</p>
     </div>
-    <figure class="hero-garden reveal d1">
-      <svg class="garden-svg" viewBox="0 0 500 500" role="img" aria-labelledby="gardenTitle gardenDesc" xmlns="http://www.w3.org/2000/svg">
-        <title id="gardenTitle">Jardín tecnológico de Ynera</title>
-        <desc id="gardenDesc">Una regadera violeta alimenta cuatro plantas argentinas dibujadas como circuitos verdes.</desc>
-        <defs>
-          <radialGradient id="gardenGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A782FF" stop-opacity=".18"/><stop offset="1" stop-color="#A782FF" stop-opacity="0"/></radialGradient>
-        </defs>
-        <circle cx="320" cy="232" r="98" fill="url(#gardenGlow)"/>
-        <path class="garden-grid" d="M35 100H465M35 180H465M35 260H465M35 340H465M35 420H465M80 70V445M160 70V445M240 70V445M320 70V445M400 70V445"/>
-        <path class="garden-ground" d="M38 420 Q250 410 462 420"/>
-        <path class="garden-root" d="M100 418v36m0-28-22 24m22-24 21 24M210 418v38m0-29-25 25m25-25 26 25M315 418v34m0-25-18 22m18-22 19 22M408 418v38m0-29-24 25m24-25 25 25"/>
+    <div class="hero-visual hero-garden reveal d1">
 
-        <g class="garden-plant" style="--delay:-.5s">
-          <path class="garden-stem" d="M100 420 Q96 328 100 194"/>
-          <path class="garden-branch" d="M100 420Q68 337 54 280M100 420q34-86 52-144M100 420q-17-72-25-112M100 420q18-73 31-118"/>
-          <path class="garden-flower" d="M100 190c-25-11-24-66 0-87 24 21 25 76 0 87Z"/>
-          <path class="garden-leaf" d="M74 311q-25-19-35-2 18 17 35 2ZM132 302q24-20 35-2-18 17-35 2Z"/>
-          <circle class="garden-node" cx="100" cy="103" r="4"/>
-        </g>
-        <g class="garden-plant" style="--delay:-2s">
-          <path class="garden-stem" d="M210 420Q204 338 212 233"/>
-          <path class="garden-branch" d="M209 325q-35-20-58-49M210 306q31-23 57-54M211 267q-18-15-29-30M211 264q18-18 31-35"/>
-          <path class="garden-leaf" d="M165 288q-29-7-31 11 25 9 31-11ZM253 268q28-10 33 8-23 12-33-8ZM181 242q-23-10-27 6 20 12 27-6Z"/>
-          <circle class="garden-flower" cx="182" cy="235" r="10"/><circle class="garden-flower" cx="212" cy="227" r="12"/><circle class="garden-flower" cx="243" cy="225" r="9"/>
-          <circle class="garden-node" cx="212" cy="227" r="3.5"/>
-        </g>
-        <g class="garden-plant" style="--delay:-3.4s">
-          <path class="garden-stem" d="M315 420q-4-50 2-111"/>
-          <path class="garden-branch" d="M316 360q-26-17-43-34M316 350q28-16 46-37M316 328q-13-17-20-30M316 328q13-18 23-32"/>
-          <path class="garden-leaf" d="M274 326q-22-9-26 5 18 12 26-5ZM360 314q21-11 27 3-17 14-27-3ZM295 300q-18-9-22 4 16 10 22-4Z"/>
-          <circle class="garden-flower" cx="271" cy="323" r="6"/><circle class="garden-flower" cx="363" cy="310" r="6"/><circle class="garden-flower" cx="295" cy="296" r="5"/><circle class="garden-flower" cx="340" cy="293" r="5"/>
-          <circle class="garden-node" cx="317" cy="309" r="3"/>
-        </g>
-        <g class="garden-plant" style="--delay:-1.1s">
-          <path class="garden-stem" d="M408 420q-7-104 5-210"/>
-          <path class="garden-branch" d="M410 331q-39-29-61-72M410 308q42-30 63-70M411 270q-26-27-39-53M411 261q24-28 38-54"/>
-          <path class="garden-leaf" d="M356 267q-30-13-35 6 25 16 35-6ZM462 247q28-17 37 1-23 18-37-1ZM374 219q-24-15-31 1 20 17 31-1ZM448 209q23-16 31 0-19 17-31 0Z"/>
-          <circle class="garden-flower" cx="350" cy="252" r="9"/><circle class="garden-flower" cx="374" cy="218" r="8"/><circle class="garden-flower" cx="414" cy="203" r="12"/><circle class="garden-flower" cx="449" cy="207" r="9"/><circle class="garden-flower" cx="473" cy="237" r="7"/>
-          <circle class="garden-node" cx="414" cy="203" r="4"/>
-        </g>
+        <!-- Tooltip botánico: aparece al hover sobre cada planta -->
+        <div class="plant-tooltip" id="plantTooltip">
+          <span class="common">Ceibo</span>
+          <span class="species">Erythrina crista-galli</span>
+        </div>
 
-        <g class="garden-waterer">
-          <path class="garden-can" d="M357 75h70v45h-70zM427 86q33-2 35 21-18 5-35-4M357 88l-50 30-8-10 58-18M372 74q5-24 26-24t25 24"/>
-          <path class="garden-water-line" d="M306 116Q284 152 300 191"/>
-          <circle class="garden-drop" cx="305" cy="126" r="4" style="--drop-delay:0s"/>
-          <circle class="garden-drop" cx="315" cy="119" r="3.5" style="--drop-delay:.46s"/>
-          <circle class="garden-drop" cx="324" cy="115" r="3" style="--drop-delay:.92s"/>
-        </g>
-        <circle class="garden-pulse" cx="315" cy="241" r="12"/>
-      </svg>
-      <figcaption class="garden-caption"><span>naturaleza argentina · sistemas vivos</span><b>regar → medir → mejorar</b></figcaption>
-    </figure>
-    <div class="synthesis-head reveal d1">
+        <!-- Garden of 4 iconic Argentine plants, L→R:
+             Cortadera (pampas grass), Ceibo (flor nacional),
+             Calafate (Patagonian berry), Jacarandá (violet blooms).
+             Each plant has layered classes (.layer-root, -stem, -branch,
+             -leaf, -bloom) that animate in sequence, so growth reads as
+             germination → trunk → branches → foliage → flowers. -->
+<svg class="garden" viewBox="0 0 500 560" role="img" aria-label="Jardin tecnologico argentino que se riega y crece" xmlns="http://www.w3.org/2000/svg" data-wind-x="250">
+          <defs>
+            <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#70D69A" stop-opacity="0"/>
+              <stop offset="0.5" stop-color="#70D69A" stop-opacity="0.5"/>
+              <stop offset="1" stop-color="#70D69A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect class="garden-scan" x="0" y="0" width="500" height="30" fill="url(#scanGrad)" opacity="0" pointer-events="none" style="display:none"/>
+          <g class="plants-group" fill="none" stroke="#70D69A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+
+            <!-- Ground line = PCB edge -->
+            <path class="layer-ground" d="M 40 520 Q 250 515 460 520" stroke-width="1.2" stroke="#70D69A" opacity="0.7"/>
+
+            <!-- ============ ROOTS LAYER = PCB traces gruesos ============ -->
+            <g class="roots" stroke-width="1.2" opacity="0.55" stroke="#70D69A">
+              <path class="layer-root plant-1" d="M 110 520 L 110 548" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-1" d="M 110 522 L 92 544" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-1" d="M 110 522 L 128 544" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-2" d="M 210 520 L 210 552" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-2" d="M 210 522 L 188 548" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-2" d="M 210 522 L 232 548" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-3" d="M 320 520 L 320 548" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-3" d="M 320 522 L 304 544" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-3" d="M 320 522 L 336 544" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-4" d="M 420 520 L 420 552" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-4" d="M 420 522 L 402 548" stroke-dasharray="4 2"/>
+              <path class="layer-root plant-4" d="M 420 522 L 438 548" stroke-dasharray="4 2"/>
+              <!-- Solder pads en la base de cada planta -->
+              <rect x="106" y="516" width="8" height="6" rx="1" fill="#F0F2E8" stroke="#70D69A" stroke-width="0.8"/>
+              <rect x="206" y="516" width="8" height="6" rx="1" fill="#F0F2E8" stroke="#70D69A" stroke-width="0.8"/>
+              <rect x="316" y="516" width="8" height="6" rx="1" fill="#F0F2E8" stroke="#70D69A" stroke-width="0.8"/>
+              <rect x="416" y="516" width="8" height="6" rx="1" fill="#F0F2E8" stroke="#70D69A" stroke-width="0.8"/>
+            </g>
+
+            <!-- ============ CORTADERA — Chip array panicle ============ -->
+            <g class="plant-1 sway" style="--ox:110px; --oy:520px; --flex:0.6; --amp:2.2deg; --phase:0.0;" data-wx="110" data-name="Cortadera" data-species="Cortaderia selloana">
+              <rect class="hit-area" x="40" y="110" width="150" height="415"/>
+              <!-- Main stem = bus line -->
+              <path class="layer-stem" d="M 110 520 Q 108 450 111 370 Q 114 290 112 210 Q 111 170 110 140" stroke-width="1.6"/>
+              <!-- Blades = traces curvos -->
+              <path class="layer-branch" d="M 110 520 Q 85 460 70 420 Q 58 380 52 360" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 110 520 Q 135 460 152 420 Q 164 380 170 360" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 110 520 Q 92 470 82 440 Q 74 410 68 390" stroke-width="1"/>
+              <path class="layer-branch" d="M 110 520 Q 128 470 140 440 Q 150 410 156 390" stroke-width="1"/>
+              <!-- Via-holes en base de blades -->
+              <g class="via-hole"><circle cx="52" cy="360" r="2.5"/><circle class="via-hole__dot" cx="52" cy="360" r="1.3"/></g>
+              <g class="via-hole"><circle cx="170" cy="360" r="2.5"/><circle class="via-hole__dot" cx="170" cy="360" r="1.3"/></g>
+              <g class="via-hole"><circle cx="68" cy="390" r="2"/><circle class="via-hole__dot" cx="68" cy="390" r="1"/></g>
+              <g class="via-hole"><circle cx="156" cy="390" r="2"/><circle class="via-hole__dot" cx="156" cy="390" r="1"/></g>
+
+              <!-- PLUMA = CHIP ARRAY: 9 hex pads GRANDES + traces conectándolos -->
+              <g class="flutter" style="--ox:110px; --oy:150px; --flex:1.5; --amp:5deg;">
+                <g class="layer-bloom" stroke="none">
+                  <!-- Halo de fondo -->
+                  <ellipse cx="110" cy="148" rx="22" ry="40" fill="#70D69A" opacity="0.08"/>
+                  <!-- Traces conectando los chips (grid de datos) -->
+                  <line x1="110" y1="110" x2="110" y2="185" stroke="#70D69A" stroke-width="0.6" opacity="0.6"/>
+                  <line x1="100" y1="120" x2="100" y2="175" stroke="#70D69A" stroke-width="0.5" opacity="0.5"/>
+                  <line x1="120" y1="120" x2="120" y2="175" stroke="#70D69A" stroke-width="0.5" opacity="0.5"/>
+                  <line x1="90" y1="135" x2="130" y2="135" stroke="#70D69A" stroke-width="0.5" opacity="0.4"/>
+                  <line x1="90" y1="155" x2="130" y2="155" stroke="#70D69A" stroke-width="0.5" opacity="0.4"/>
+                  <!-- 9 HEX PADS grandes (5x5.5px) alternando colores -->
+                  <!-- Centro -->
+                  <path class="led-pad" d="M 110.0 97.5 L 115.22 99.0 L 115.22 102.0 L 110.0 103.5 L 104.78 102.0 L 104.78 99.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" fill="#C5E77C" d="M 100.0 107.5 L 105.22 109.0 L 105.22 112.0 L 100.0 113.5 L 94.78 112.0 L 94.78 109.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" fill="#70D69A" d="M 120.0 107.5 L 125.22 109.0 L 125.22 112.0 L 120.0 113.5 L 114.78 112.0 L 114.78 109.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" d="M 110.0 117.5 L 115.22 119.0 L 115.22 122.0 L 110.0 123.5 L 104.78 122.0 L 104.78 119.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" fill="#C5E77C" d="M 95.0 127.5 L 100.22 129.0 L 100.22 132.0 L 95.0 133.5 L 89.78 132.0 L 89.78 129.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" fill="#70D69A" d="M 125.0 127.5 L 130.22 129.0 L 130.22 132.0 L 125.0 133.5 L 119.78 132.0 L 119.78 129.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" d="M 108.0 137.5 L 113.22 139.0 L 113.22 142.0 L 108.0 143.5 L 102.78 142.0 L 102.78 139.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" fill="#C5E77C" d="M 112.0 137.5 L 117.22 139.0 L 117.22 142.0 L 112.0 143.5 L 106.78 142.0 L 106.78 139.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <path class="led-pad" fill="#70D69A" d="M 110.0 152.5 L 115.22 154.0 L 115.22 157.0 L 110.0 158.5 L 104.78 157.0 L 104.78 154.0 Z" stroke="#70D69A" stroke-width="0.3"/>
+                  <!-- Bordes del array (rectángulo PCB) -->
+                  <rect x="85" y="105" width="50" height="80" rx="3" fill="none" stroke="#70D69A" stroke-width="0.5" opacity="0.4" stroke-dasharray="2 1"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- ============ CEIBO — LED flowers + PCB trunk ============ -->
+            <g class="plant-2 sway" style="--ox:210px; --oy:520px; --flex:0.85; --amp:1.6deg; --phase:0.25;" data-wx="210" data-name="Ceibo" data-species="Erythrina crista-galli · Flor nacional">
+              <rect class="hit-area" x="160" y="205" width="110" height="320"/>
+              <!-- Trunk = PCB bus line con stroke-dasharray -->
+              <path class="layer-stem" stroke-width="2.2" d="M 210 520 Q 207 460 213 400 Q 219 340 215 290 Q 213 260 216 240"/>
+              <!-- Branches = traces -->
+              <path class="layer-branch" stroke-width="1.5" d="M 213 350 Q 188 335 168 320"/>
+              <path class="layer-branch" stroke-width="1.5" d="M 215 340 Q 236 320 258 305"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 216 255 Q 204 245 196 236"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 216 250 Q 228 240 238 230"/>
+              <!-- Via-holes en nudos del tronco -->
+              <g class="via-hole"><circle cx="213" cy="400" r="2.5"/><circle class="via-hole__dot" cx="213" cy="400" r="1.3"/></g>
+              <g class="via-hole"><circle cx="215" cy="290" r="2.5"/><circle class="via-hole__dot" cx="215" cy="290" r="1.3"/></g>
+              <g class="via-hole"><circle cx="216" cy="240" r="2.5"/><circle class="via-hole__dot" cx="216" cy="240" r="1.3"/></g>
+
+              <!-- FLORES = LED pads GRANDES con anillos brillantes -->
+              <g class="layer-bloom" stroke="none">
+                <g class="flutter" style="--ox:216px; --oy:235px; --flex:1.1; --amp:3.5deg;">
+                  <!-- LED 1: anillo clay + halo cream + dot clay + cross-hair -->
+                  <circle cx="216" cy="228" r="9" fill="#A782FF" opacity="0.25"/>
+                  <circle cx="216" cy="228" r="6.5" fill="none" stroke="#A782FF" stroke-width="1.2"/>
+                  <circle cx="216" cy="228" r="4.5" fill="#F0F2E8"/>
+                  <circle class="led-pad" cx="216" cy="228" r="2.5" fill="#A782FF"/>
+                  <line x1="212.0" y1="228" x2="220.0" y2="228" stroke="#A782FF" stroke-width="0.4" opacity="0.6"/>
+                  <line x1="216" y1="224.0" x2="216" y2="232.0" stroke="#A782FF" stroke-width="0.4" opacity="0.6"/>
+                </g>
+                <g class="flutter" style="--ox:238px; --oy:228px; --flex:1.2; --amp:4deg;">
+                  <circle cx="238" cy="222" r="9" fill="#A782FF" opacity="0.25"/>
+                  <circle cx="238" cy="222" r="6.5" fill="none" stroke="#A782FF" stroke-width="1.2"/>
+                  <circle cx="238" cy="222" r="4.5" fill="#F0F2E8"/>
+                  <circle class="led-pad" cx="238" cy="222" r="2.5" fill="#A782FF"/>
+                  <line x1="234.0" y1="222" x2="242.0" y2="222" stroke="#A782FF" stroke-width="0.4" opacity="0.6"/>
+                  <line x1="238" y1="218.0" x2="238" y2="226.0" stroke="#A782FF" stroke-width="0.4" opacity="0.6"/>
+                </g>
+                <g class="flutter" style="--ox:196px; --oy:234px; --flex:1.2; --amp:4deg;">
+                  <circle cx="196" cy="227" r="9" fill="#A782FF" opacity="0.25"/>
+                  <circle cx="196" cy="227" r="6.5" fill="none" stroke="#A782FF" stroke-width="1.2"/>
+                  <circle cx="196" cy="227" r="4.5" fill="#F0F2E8"/>
+                  <circle class="led-pad" cx="196" cy="227" r="2.5" fill="#A782FF"/>
+                  <line x1="192.0" y1="227" x2="200.0" y2="227" stroke="#A782FF" stroke-width="0.4" opacity="0.6"/>
+                  <line x1="196" y1="223.0" x2="196" y2="231.0" stroke="#A782FF" stroke-width="0.4" opacity="0.6"/>
+                </g>
+                <g class="flutter" style="--ox:258px; --oy:300px; --flex:1.0; --amp:3deg;">
+                  <circle cx="258" cy="294" r="7" fill="#A782FF" opacity="0.25"/>
+                  <circle cx="258" cy="294" r="5" fill="none" stroke="#A782FF" stroke-width="1"/>
+                  <circle cx="258" cy="294" r="3.5" fill="#F0F2E8"/>
+                  <circle class="led-pad" cx="258" cy="294" r="2" fill="#A782FF"/>
+                </g>
+                <g class="flutter" style="--ox:168px; --oy:316px; --flex:1.0; --amp:3deg;">
+                  <circle cx="168" cy="310" r="7" fill="#A782FF" opacity="0.25"/>
+                  <circle cx="168" cy="310" r="5" fill="none" stroke="#A782FF" stroke-width="1"/>
+                  <circle cx="168" cy="310" r="3.5" fill="#F0F2E8"/>
+                  <circle class="led-pad" cx="168" cy="310" r="2" fill="#A782FF"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- ============ CALAFATE — SMD components ============ -->
+            <g class="plant-3 sway" style="--ox:320px; --oy:520px; --flex:0.75; --amp:1.8deg; --phase:0.5;" data-wx="320" data-name="Calafate" data-species="Berberis microphylla">
+              <rect class="hit-area" x="280" y="395" width="80" height="130"/>
+              <path class="layer-stem" d="M 320 520 Q 319 495 321 470 Q 322 445 320 420" stroke-width="1.6"/>
+              <path class="layer-branch" d="M 321 470 Q 305 462 292 452" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 321 470 Q 337 462 350 452" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 321 450 Q 302 442 290 430" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 321 450 Q 340 442 352 430" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 320 420 Q 312 410 306 402" stroke-width="1.2"/>
+              <path class="layer-branch" d="M 320 420 Q 328 410 334 402" stroke-width="1.2"/>
+              <!-- Leaves = pads rectangulares con via-hole -->
+              <g class="layer-leaf" stroke="none">
+                <rect x="291" y="450" width="6" height="4" rx="0.5" fill="#70D69A" opacity="0.4"/>
+                <rect x="345" y="450" width="6" height="4" rx="0.5" fill="#70D69A" opacity="0.4"/>
+                <rect x="289" y="428" width="5" height="3.5" rx="0.5" fill="#70D69A" opacity="0.4"/>
+                <rect x="347" y="428" width="5" height="3.5" rx="0.5" fill="#70D69A" opacity="0.4"/>
+              </g>
+              <!-- Solder dots en bifurcaciones -->
+              <g class="layer-bloom">
+                <circle class="solder-dot" cx="321" cy="470" r="2"/>
+                <circle class="solder-dot" cx="321" cy="450" r="2"/>
+                <circle class="solder-dot" cx="320" cy="420" r="2"/>
+              </g>
+              <!-- BAYAS = SMD components (rect + 2 pins) -->
+              <g class="layer-bloom" stroke="none">
+                <g class="flutter" style="--ox:292px; --oy:452px; --flex:1.0; --amp:2.5deg;">
+                  <!-- SMD 1: clay -->
+                  <rect x="288.0" y="448.5" width="6" height="4" rx="0.5" fill="#A782FF" stroke="#70D69A" stroke-width="0.3"/>
+                  <line x1="287.0" y1="449.8" x2="288.0" y2="449.8" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="294.0" y1="449.8" x2="295.0" y2="449.8" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="287.0" y1="451.2" x2="288.0" y2="451.2" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="294.0" y1="451.2" x2="295.0" y2="451.2" stroke="#70D69A" stroke-width="0.6"/>
+                  <!-- SMD 2: teal -->
+                  <rect x="282.0" y="453.5" width="6" height="4" rx="0.5" fill="#70D69A" stroke="#70D69A" stroke-width="0.3"/>
+                  <line x1="281.0" y1="454.8" x2="282.0" y2="454.8" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="288.0" y1="454.8" x2="289.0" y2="454.8" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="281.0" y1="456.2" x2="282.0" y2="456.2" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="288.0" y1="456.2" x2="289.0" y2="456.2" stroke="#70D69A" stroke-width="0.6"/>
+                </g>
+                <g class="flutter" style="--ox:350px; --oy:452px; --flex:1.0; --amp:2.5deg;">
+                  <rect x="346.0" y="448.5" width="6" height="4" rx="0.5" fill="#A782FF" stroke="#70D69A" stroke-width="0.3"/>
+                  <line x1="345.0" y1="449.8" x2="346.0" y2="449.8" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="352.0" y1="449.8" x2="353.0" y2="449.8" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="345.0" y1="451.2" x2="346.0" y2="451.2" stroke="#70D69A" stroke-width="0.6"/>
+                  <line x1="352.0" y1="451.2" x2="353.0" y2="451.2" stroke="#70D69A" stroke-width="0.6"/>
+                  <rect x="352" y="453" width="6" height="5" rx="0.8" fill="#70D69A" stroke="#70D69A" stroke-width="0.4"/>
+                  <line x1="351" y1="455.5" x2="352" y2="455.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <line x1="358" y1="455.5" x2="359" y2="455.5" stroke="#70D69A" stroke-width="0.8"/>
+                </g>
+                <g class="flutter" style="--ox:306px; --oy:402px; --flex:1.1; --amp:3deg;">
+                  <rect x="302" y="398" width="6" height="5" rx="0.8" fill="#A782FF" stroke="#70D69A" stroke-width="0.4"/>
+                  <line x1="301" y1="400.5" x2="302" y2="400.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <line x1="308" y1="400.5" x2="309" y2="400.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <rect x="308" y="394" width="6" height="5" rx="0.8" fill="#70D69A" stroke="#70D69A" stroke-width="0.4"/>
+                  <line x1="307" y1="396.5" x2="308" y2="396.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <line x1="314" y1="396.5" x2="315" y2="396.5" stroke="#70D69A" stroke-width="0.8"/>
+                </g>
+                <g class="flutter" style="--ox:334px; --oy:402px; --flex:1.1; --amp:3deg;">
+                  <rect x="330" y="398" width="6" height="5" rx="0.8" fill="#A782FF" stroke="#70D69A" stroke-width="0.4"/>
+                  <line x1="329" y1="400.5" x2="330" y2="400.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <line x1="336" y1="400.5" x2="337" y2="400.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <rect x="336" y="394" width="6" height="5" rx="0.8" fill="#70D69A" stroke="#70D69A" stroke-width="0.4"/>
+                  <line x1="335" y1="396.5" x2="336" y2="396.5" stroke="#70D69A" stroke-width="0.8"/>
+                  <line x1="342" y1="396.5" x2="343" y2="396.5" stroke="#70D69A" stroke-width="0.8"/>
+                </g>
+                <!-- Flores amarillas = ochre LED rings -->
+                <g class="flutter" style="--ox:298px; --oy:416px; --flex:1.1; --amp:3deg;">
+                  <circle cx="298" cy="416" r="4" fill="#C5E77C" opacity="0.3"/>
+                  <circle cx="298" cy="416" r="3" fill="none" stroke="#C5E77C" stroke-width="1"/>
+                  <circle class="led-pad ochre" cx="298" cy="416" r="1.5" fill="#F0F2E8"/>
+                </g>
+                <g class="flutter" style="--ox:344px; --oy:416px; --flex:1.1; --amp:3deg;">
+                  <circle cx="344" cy="416" r="4" fill="#C5E77C" opacity="0.3"/>
+                  <circle cx="344" cy="416" r="3" fill="none" stroke="#C5E77C" stroke-width="1"/>
+                  <circle class="led-pad ochre" cx="344" cy="416" r="1.5" fill="#F0F2E8"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- ============ JACARANDÁ — Transistor array ============ -->
+            <g class="plant-4 sway" style="--ox:420px; --oy:520px; --flex:0.7; --amp:2deg; --phase:0.75;" data-wx="420" data-name="Jacarandá" data-species="Jacaranda mimosifolia">
+              <rect class="hit-area" x="395" y="270" width="85" height="255"/>
+              <path class="layer-stem" stroke-width="1.8" d="M 420 520 Q 422 470 427 420 Q 434 370 440 330 Q 445 300 450 280"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 428 410 Q 444 405 458 400"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 428 410 Q 412 405 398 400"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 432 380 Q 448 375 462 372"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 432 380 Q 418 376 405 374"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 438 350 Q 453 346 466 344"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 438 350 Q 424 348 412 348"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 444 320 Q 458 316 470 314"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 444 320 Q 432 318 420 318"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 448 295 Q 460 292 470 292"/>
+              <path class="layer-branch" stroke-width="1.2" d="M 448 295 Q 436 293 426 294"/>
+              <!-- Solder dots en bifurcaciones -->
+              <g class="layer-bloom">
+                <circle class="solder-dot" cx="428" cy="410" r="2"/>
+                <circle class="solder-dot" cx="432" cy="380" r="2"/>
+                <circle class="solder-dot" cx="438" cy="350" r="2"/>
+                <circle class="solder-dot" cx="444" cy="320" r="2"/>
+                <circle class="solder-dot" cx="448" cy="295" r="2"/>
+              </g>
+
+              <!-- TRANSISTOR ARRAY: 9 transistores dentro de layer-bloom (aparecen después del riego) -->
+              <g class="layer-bloom" stroke="none">
+                  <g class="transistor"><rect class="body" x="445.0" y="273.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="446.5" y1="278.5" x2="446.5" y2="282.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="449.0" y1="278.5" x2="449.0" y2="282.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="451.5" y1="278.5" x2="451.5" y2="282.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="441.0" y="277.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="442.5" y1="282.5" x2="442.5" y2="286.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="445.0" y1="282.5" x2="445.0" y2="286.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="447.5" y1="282.5" x2="447.5" y2="286.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="449.0" y="277.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="450.5" y1="282.5" x2="450.5" y2="286.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="453.0" y1="282.5" x2="453.0" y2="286.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="455.5" y1="282.5" x2="455.5" y2="286.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="465.0" y="309.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="466.5" y1="314.5" x2="466.5" y2="318.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="469.0" y1="314.5" x2="469.0" y2="318.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="471.5" y1="314.5" x2="471.5" y2="318.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="461.0" y="313.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="462.5" y1="318.5" x2="462.5" y2="322.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="465.0" y1="318.5" x2="465.0" y2="322.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="467.5" y1="318.5" x2="467.5" y2="322.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="415.0" y="313.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="416.5" y1="318.5" x2="416.5" y2="322.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="419.0" y1="318.5" x2="419.0" y2="322.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="421.5" y1="318.5" x2="421.5" y2="322.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="411.0" y="317.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="412.5" y1="322.5" x2="412.5" y2="326.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="415.0" y1="322.5" x2="415.0" y2="326.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="417.5" y1="322.5" x2="417.5" y2="326.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="461.0" y="339.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="462.5" y1="344.5" x2="462.5" y2="348.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="465.0" y1="344.5" x2="465.0" y2="348.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="467.5" y1="344.5" x2="467.5" y2="348.5" stroke="#70D69A" stroke-width="0.8"/></g>
+                  <g class="transistor"><rect class="body" x="465.0" y="287.5" width="8" height="5" rx="0.8" fill="#70D69A"/><line class="leg" x1="466.5" y1="292.5" x2="466.5" y2="296.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="469.0" y1="292.5" x2="469.0" y2="296.5" stroke="#70D69A" stroke-width="0.8"/><line class="leg" x1="471.5" y1="292.5" x2="471.5" y2="296.5" stroke="#70D69A" stroke-width="0.8"/></g>
+              </g>
+            </g>
+
+            <!-- Ground flora — 4 LED status dots GRANDES -->
+            <g stroke="none" class="layer-bloom">
+              <g class="flutter" style="--ox:160px; --oy:510px; --flex:0.6; --amp:2deg;">
+                <circle cx="160" cy="510" r="6" fill="#C5E77C" opacity="0.25"/>
+                <circle cx="160" cy="510" r="4.5" fill="none" stroke="#C5E77C" stroke-width="1"/>
+                <circle cx="160" cy="510" r="3" fill="#F0F2E8"/>
+                <circle class="led-pad ochre" cx="160" cy="510" r="1.8" fill="#C5E77C"/>
+              </g>
+              <g class="flutter" style="--ox:265px; --oy:512px; --flex:0.6; --amp:2deg;">
+                <circle cx="265" cy="512" r="6" fill="#A782FF" opacity="0.25"/>
+                <circle cx="265" cy="512" r="4.5" fill="none" stroke="#A782FF" stroke-width="1.2"/>
+                <circle cx="265" cy="512" r="3" fill="#F0F2E8"/>
+                <circle class="led-pad" cx="265" cy="512" r="1.8" fill="#A782FF"/>
+              </g>
+              <g class="flutter" style="--ox:372px; --oy:510px; --flex:0.6; --amp:2deg;">
+                <circle cx="372" cy="510" r="6" fill="#70D69A" opacity="0.25"/>
+                <circle cx="372" cy="510" r="4.5" fill="none" stroke="#70D69A" stroke-width="1"/>
+                <circle cx="372" cy="510" r="3" fill="#F0F2E8"/>
+                <circle class="led-pad teal" cx="372" cy="510" r="1.8" fill="#70D69A"/>
+              </g>
+
+                <circle cx="470" cy="512" r="5" fill="#70D69A" opacity="0.25"/>
+                <circle cx="470" cy="512" r="4" fill="none" stroke="#70D69A" stroke-width="1.2"/>
+                <circle cx="470" cy="512" r="2.5" fill="#F0F2E8"/>
+                <circle class="led-pad moss" cx="470" cy="512" r="1.5" fill="#70D69A"/>
+
+            </g>
+          </g>
+
+          <g id="intro-seed">
+            <g class="seed s1 chip-pellet">
+              <rect x="108.5" y="-1" width="3" height="2" rx="0.8"/>
+              <line x1="109.5" y1="1" x2="109.5" y2="2.4"/>
+              <line x1="110.5" y1="1" x2="110.5" y2="2.4"/>
+            </g>
+            <g class="seed s2 chip-pellet">
+              <rect x="208.5" y="-1" width="3" height="2" rx="0.8"/>
+              <line x1="209.5" y1="1" x2="209.5" y2="2.4"/>
+              <line x1="210.5" y1="1" x2="210.5" y2="2.4"/>
+            </g>
+            <g class="seed s3 chip-pellet">
+              <rect x="318.5" y="-1" width="3" height="2" rx="0.8"/>
+              <line x1="319.5" y1="1" x2="319.5" y2="2.4"/>
+              <line x1="320.5" y1="1" x2="320.5" y2="2.4"/>
+            </g>
+            <g class="seed s4 chip-pellet">
+              <rect x="418.5" y="-1" width="3" height="2" rx="0.8"/>
+              <line x1="419.5" y1="1" x2="419.5" y2="2.4"/>
+              <line x1="420.5" y1="1" x2="420.5" y2="2.4"/>
+            </g>
+          </g>
+          <g id="intro-can" opacity="0">
+            <g fill="none" stroke="#70D69A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 0 20 L 0 46 Q 0 53 7 53 L 40 53 Q 47 53 47 46 L 47 20 Z" fill="#F0F2E8"/>
+              <path d="M 8 20 Q 8 12 16 12 L 31 12 Q 39 12 39 20"/>
+              <path d="M 47 28 L 68 22 L 74 30 L 60 38 Z" fill="#F0F2E8"/>
+              <line x1="10" y1="18" x2="37" y2="18"/>
+              <path d="M 5 26 Q 23 32 42 26" opacity="0.35"/>
+            </g>
+            <g class="can-tech">
+              <circle class="led-pad" cx="23" cy="36" r="1.2" fill="#A782FF" style="opacity:0.85"/>
+              <line class="trace" x1="50" y1="30" x2="70" y2="27"/>
+            </g>
+          </g>
+          <g id="water-drops"></g>
+        </svg>
+      <p class="garden-caption"><span>jardin de circuitos vivos</span><b>regar &rarr; crecer &rarr; mejorar</b></p>
+    </div>    <div class="synthesis-head reveal d1">
       <div>
         <span class="tag"><span class="cell"></span>DEL JARDÍN AL SISTEMA</span>
         <h2 style="margin-top:18px">Tecnología que crece, pero con <em>control</em>.</h2>
@@ -1289,6 +1608,119 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
     }
     window.requestAnimationFrame(tickRigs);
   }
+
+  /* jardín original: regadera que cruza el hero, gotas físicas y crecimiento */
+  function startOriginalGarden(){
+    var garden = document.querySelector('.hero-visual .garden');
+    var can = document.getElementById('intro-can');
+    var dropsContainer = document.getElementById('water-drops');
+    if(!garden || !can || !dropsContainer) return;
+    if(reduced){ garden.classList.add('grown'); return; }
+
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var epoch = performance.now();
+    var lastFrame = epoch;
+    var drops = [];
+    var timing = {canInStart:1400,canInEnd:2200,tipStart:2200,tipEnd:2600,panStart:2600,panEnd:5600,untipStart:5600,untipEnd:5900,exitStart:5900,exitEnd:6500,growStart:4200};
+    var tipRadians = 28 * Math.PI / 180;
+    var colors = ['#A782FF','#70D69A','#C5E77C','#B69BFF'];
+    function clamp(n){ return Math.min(1,Math.max(0,n)); }
+    function ease(n){ n=clamp(n); return n<.5 ? 2*n*n : 1-Math.pow(-2*n+2,2)/2; }
+    function mix(a,b,n){ return a+(b-a)*n; }
+    function spout(tx,ty,rot){
+      var c=Math.cos(rot),s=Math.sin(rot),lx=60,ly=-20;
+      return {x:tx+c*lx-s*ly+12,y:ty+s*lx+c*ly+46};
+    }
+    function runIntro(now){
+      var t=now-epoch,dt=Math.min(50,now-lastFrame)/16.6667;
+      lastFrame=now;
+      var tx=-80,ty=40,rotation=0,opacity=0;
+      if(t>=timing.canInStart && t<timing.canInEnd){
+        var enter=ease((t-timing.canInStart)/(timing.canInEnd-timing.canInStart));
+        tx=mix(-80,40,enter);ty=mix(40,55,enter);opacity=clamp(enter*1.6);
+      }else if(t>=timing.canInEnd && t<timing.tipEnd){
+        tx=40;ty=55;opacity=1;rotation=ease((t-timing.tipStart)/(timing.tipEnd-timing.tipStart))*tipRadians;
+      }else if(t>=timing.tipEnd && t<timing.panEnd){
+        tx=mix(40,400,ease((t-timing.panStart)/(timing.panEnd-timing.panStart)));ty=55;opacity=1;rotation=tipRadians;
+      }else if(t>=timing.panEnd && t<timing.untipEnd){
+        tx=400;ty=55;opacity=1;rotation=(1-ease((t-timing.untipStart)/(timing.untipEnd-timing.untipStart)))*tipRadians;
+      }else if(t>=timing.untipEnd && t<timing.exitEnd){
+        var exit=ease((t-timing.exitStart)/(timing.exitEnd-timing.exitStart));
+        tx=mix(400,540,exit);ty=55;opacity=clamp(1-exit*1.3);
+      }
+      can.style.opacity=opacity.toFixed(3);
+      can.style.transform='translate('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px) rotate('+(rotation*180/Math.PI).toFixed(1)+'deg)';
+      if(rotation>tipRadians*.45 && t<timing.untipEnd){
+        var point=spout(tx,ty,rotation);
+        var count=2+Math.floor(Math.random()*3);
+        for(var i=0;i<count;i++){
+          var angle=(Math.random()-.5)*1.2,speed=1.6+Math.random()*1.4;
+          var drop=document.createElementNS(svgNS,'ellipse');
+          drop.setAttribute('cx',0);drop.setAttribute('cy',0);drop.setAttribute('rx',(1+Math.random()*.6).toFixed(1));drop.setAttribute('ry',(1.8+Math.random()*.9).toFixed(1));
+          drop.setAttribute('fill',colors[Math.floor(Math.random()*colors.length)]);drop.setAttribute('opacity',(0.7+Math.random()*.25).toFixed(2));
+          dropsContainer.appendChild(drop);
+          drops.push({x:point.x+(Math.random()-.5)*5,y:point.y+(Math.random()-.5)*2,vx:Math.sin(angle)*speed+(Math.random()-.5)*.6,vy:Math.cos(angle)*speed*.6+.3,life:0,el:drop});
+        }
+      }
+      for(var j=drops.length-1;j>=0;j--){
+        var item=drops[j]; item.vy+=.32*dt; item.x+=item.vx*dt; item.y+=item.vy*dt; item.life+=dt;
+        item.el.setAttribute('transform','translate('+item.x.toFixed(1)+' '+item.y.toFixed(1)+')');
+        if(item.y>520 || item.x<-20 || item.x>520 || item.life>240){ item.el.remove(); drops.splice(j,1); }
+      }
+      if(t>=timing.growStart && !garden.classList.contains('grown')) garden.classList.add('grown');
+      if(t<9000 || drops.length) window.requestAnimationFrame(runIntro);
+      else can.style.opacity='0';
+    }
+    window.requestAnimationFrame(runIntro);
+
+    /* Después de crecer, el jardín respira con un viento muy liviano. */
+    var sways=Array.prototype.slice.call(garden.querySelectorAll('.sway'));
+    var flutters=Array.prototype.slice.call(garden.querySelectorAll('.flutter'));
+    var gardenVisible=true,windImpulse=0,lastWind=0,lastPointerX=null,lastPointerTime=0;
+    if('IntersectionObserver' in window){
+      var gardenObserver=new IntersectionObserver(function(entries){ gardenVisible=entries[0].isIntersecting; },{threshold:0});
+      gardenObserver.observe(garden);
+    }
+    garden.addEventListener('pointermove',function(event){
+      var now=performance.now();
+      if(lastPointerX!==null){ windImpulse=Math.max(-.75,Math.min(.75,windImpulse+(event.clientX-lastPointerX)/Math.max(16,now-lastPointerTime)*.09)); }
+      lastPointerX=event.clientX;lastPointerTime=now;
+    },{passive:true});
+    function breathe(now){
+      if(gardenVisible && !document.hidden && now-epoch>8200 && now-lastWind>33){
+        lastWind=now;windImpulse*=.94;
+        sways.forEach(function(node,index){
+          var phase=parseFloat(node.style.getPropertyValue('--phase')||index*.2);
+          var wind=.12*Math.sin(now*.00055+phase*3)+.045*Math.sin(now*.0015+index)+windImpulse*(.62-index*.06);
+          node.style.setProperty('--wind',wind.toFixed(3));
+        });
+        flutters.forEach(function(node,index){ node.style.setProperty('--gust',(.17*Math.sin(now*.0022+index*.77)+windImpulse*.25).toFixed(3)); });
+      }
+      window.requestAnimationFrame(breathe);
+    }
+    window.requestAnimationFrame(breathe);
+
+    var tooltip=document.getElementById('plantTooltip');
+    if(tooltip){
+      var activePlant=null,tracking=false;
+      function placeTooltip(plant){
+        var plantRect=plant.getBoundingClientRect(),visualRect=garden.parentElement.getBoundingClientRect();
+        tooltip.style.left=(plantRect.left+plantRect.width/2-visualRect.left)+'px';
+        tooltip.style.top=(plantRect.top-visualRect.top)+'px';
+      }
+      function followTooltip(){ if(!activePlant){tracking=false;return;} placeTooltip(activePlant);window.requestAnimationFrame(followTooltip); }
+      garden.querySelectorAll('g[data-name]').forEach(function(plant){
+        plant.addEventListener('mouseenter',function(){
+          if(performance.now()-epoch<5500) return;
+          activePlant=plant; tooltip.querySelector('.common').textContent=plant.getAttribute('data-name'); tooltip.querySelector('.species').textContent=plant.getAttribute('data-species'); placeTooltip(plant); tooltip.classList.add('show');
+          if(!tracking){tracking=true;window.requestAnimationFrame(followTooltip);}
+        });
+        plant.addEventListener('mouseleave',function(){activePlant=null;tooltip.classList.remove('show');});
+      });
+    }
+  }
+  if(document.readyState==='complete') startOriginalGarden();
+  else window.addEventListener('load',startOriginalGarden,{once:true});
 
   /* menú mobile */
   var menuToggle = document.querySelector('.menu-toggle');
