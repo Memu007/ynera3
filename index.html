@@ -805,6 +805,72 @@ body:has(.vine-grape-hit.ready:hover) .vine-label{opacity:1;transform:translateY
   .case-privacy-note{font-size:7px;line-height:1.35;letter-spacing:.03em}
 }
 
+/* Pruebas en móvil: carrusel horizontal para recorrer los proyectos sin alargar la página. */
+@media(max-width:620px){
+  #productos>.wrap{padding-right:20px}
+  #productos .sec-head{padding-right:0}
+  .evidence-list{
+    display:flex;
+    align-items:stretch;
+    gap:14px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:20px;
+    margin-inline:-20px;
+    padding:0 20px 16px;
+    border-top:1px solid var(--ink-12);
+    scrollbar-width:thin;
+    scrollbar-color:var(--coral) transparent;
+  }
+  .evidence-case{
+    display:grid;
+    flex:0 0 80vw;
+    max-width:320px;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto auto;
+    align-content:start;
+    gap:0;
+    margin:0;
+    padding:20px;
+    border:1px solid var(--ink-12);
+    border-top:1px solid var(--ink-12);
+    background:linear-gradient(145deg,rgba(240,242,232,.18),rgba(31,138,91,.045));
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+  .evidence-case .case-index{grid-column:1;grid-row:1;margin-bottom:14px}
+  .evidence-case .case-copy{grid-column:1;grid-row:2}
+  .evidence-case .case-visual{
+    grid-column:1;
+    grid-row:3;
+    width:100%;
+    margin-top:18px;
+    align-self:end;
+    aspect-ratio:16/9;
+  }
+  .evidence-case:nth-child(even) .case-copy{grid-column:1;grid-row:2}
+  .evidence-case:nth-child(even) .case-visual{grid-column:1;grid-row:3}
+  .case-kicker{font-size:8px;line-height:1.4}
+  .case-copy h3{font-size:30px}
+  .case-problem{font-size:16px}
+  .case-copy>p:last-of-type{font-size:13px}
+  .case-spec{font-size:8px}
+  .case-link{font-size:8px}
+  .case-ledger{min-height:0}
+}
+
+/* Founders en móvil: dos perfiles en paralelo, como una sola dupla de trabajo. */
+@media(max-width:620px){
+  .founders-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .fcard{padding:20px 12px 22px 0}
+  .fcard+.fcard{padding:20px 0 22px 12px;border-left:1px solid var(--ink-12)}
+  .fcard h3{font-size:22px;margin-bottom:4px}
+  .fcard .role{font-size:7px;line-height:1.45;letter-spacing:.1em;margin-bottom:10px}
+  .fcard p{font-size:13px;line-height:1.55}
+  .fcard-link{margin-top:13px;font-size:8px;letter-spacing:.07em}
+}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
