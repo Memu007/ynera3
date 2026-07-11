@@ -10,15 +10,16 @@
 <meta property="og:description" content="IA, datos y seguridad para PyMEs. Servicios independientes, criterio integrado y tres SaaS en producción.">
 <meta property="og:locale" content="es_AR">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://ynera.com/og-image.png">
+<meta property="og:url" content="__PUBLIC_ORIGIN__/">
+<meta property="og:image" content="__PUBLIC_ORIGIN__/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ynera — Consultoría de IA, datos y seguridad">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ynera — Consultoría de IA, datos y seguridad en Buenos Aires">
 <meta name="twitter:description" content="IA, datos y seguridad para PyMEs. Servicios independientes, criterio integrado y tres SaaS en producción.">
-<meta name="twitter:image" content="https://ynera.com/og-image.png">
-<link rel="canonical" href="https://ynera.com/">
+<meta name="twitter:image" content="__PUBLIC_ORIGIN__/og-image.png">
+<link rel="canonical" href="__PUBLIC_ORIGIN__/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -29,8 +30,8 @@
 <!-- ═══ JSON-LD para SEO (rich snippets) ═══ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","name":"Ynera","description":"Consultoría de IA, datos y seguridad informática para PyMEs. Servicios independientes con una mirada integrada cuando el problema lo requiere.","url":"https://ynera.com/","email":"hola@ynera.com","slogan":"Construimos antes de aconsejar.","address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"areaServed":{"@type":"Country","name":"Argentina"},"sameAs":["https://www.linkedin.com/","https://github.com/Memu007"],"founder":[{"@type":"Person","name":"Emiliano","jobTitle":"Ciberseguridad, Código e IA","sameAs":"https://www.linkedin.com/"},{"@type":"Person","name":"Mariano","jobTitle":"Doctor en Ciencia de Datos","sameAs":"https://www.linkedin.com/"}],"knowsAbout":["Inteligencia artificial","Ciencia de datos","Ciberseguridad","Automatización de procesos"]},
-{"@type":"ProfessionalService","name":"Ynera","description":"Consultoría de IA, datos y seguridad informática para PyMEs. Cada servicio se puede contratar por separado; los integramos cuando el desafío lo pide.","url":"https://ynera.com/","email":"hola@ynera.com","priceRange":"$$","areaServed":{"@type":"Country","name":"Argentina"},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"geo":{"@type":"GeoCoordinates","latitude":-34.6037,"longitude":-58.3816},"slogan":"Construimos antes de aconsejar."},
+{"@type":"Organization","name":"Ynera","description":"Consultoría de IA, datos y seguridad informática para PyMEs. Servicios independientes con una mirada integrada cuando el problema lo requiere.","url":"__PUBLIC_ORIGIN__/","email":"hola@ynera.com","slogan":"Construimos antes de aconsejar.","address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"areaServed":{"@type":"Country","name":"Argentina"},"sameAs":["https://www.linkedin.com/","https://github.com/Memu007"],"founder":[{"@type":"Person","name":"Emiliano","jobTitle":"Ciberseguridad, Código e IA","sameAs":"https://www.linkedin.com/"},{"@type":"Person","name":"Mariano","jobTitle":"Doctor en Ciencia de Datos","sameAs":"https://www.linkedin.com/"}],"knowsAbout":["Inteligencia artificial","Ciencia de datos","Ciberseguridad","Automatización de procesos"]},
+{"@type":"ProfessionalService","name":"Ynera","description":"Consultoría de IA, datos y seguridad informática para PyMEs. Cada servicio se puede contratar por separado; los integramos cuando el desafío lo pide.","url":"__PUBLIC_ORIGIN__/","email":"hola@ynera.com","priceRange":"$$","areaServed":{"@type":"Country","name":"Argentina"},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"geo":{"@type":"GeoCoordinates","latitude":-34.6037,"longitude":-58.3816},"slogan":"Construimos antes de aconsejar."},
 {"@type":"SoftwareApplication","name":"Aira","applicationCategory":"HealthApplication","operatingSystem":"Web","description":"Gestión de pacientes para psicólogos y psiquiatras independientes."},
 {"@type":"SoftwareApplication","name":"CDI","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Plataforma para despachantes de aduana. Automatiza trámites que el sector todavía hacía en papel."},
 {"@type":"SoftwareApplication","name":"ReservaYá","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Reservas y gestión para hoteles chicos."},
@@ -306,6 +307,10 @@ section{padding:128px 0}
 .case-ledger{padding:27px 24px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,rgba(31,138,91,.08),rgba(11,21,17,.12) 60%)}
 .case-ledger::after{content:"";position:absolute;width:55%;height:1px;right:-9%;top:32%;background:var(--aqua);opacity:.6;transform:rotate(-28deg);box-shadow:0 28px 0 rgba(31,138,91,.32),0 56px 0 rgba(31,138,91,.16)}
 .ledger-caption{position:relative;z-index:1;font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--aqua)}
+.case-ledger--private{gap:20px}
+.case-ledger--private::after{top:38%;opacity:.38}
+.case-privacy-note{position:relative;z-index:1;max-width:29ch;margin:0;font-family:var(--mono);font-size:10px;line-height:1.65;letter-spacing:.05em;color:var(--ink-70)}
+.case-privacy-note b{color:var(--ink);font-weight:500}
 .ledger-stack{position:relative;z-index:1;display:grid;gap:8px}
 .ledger-stack span{display:block;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.1vw,29px);line-height:1;color:var(--ink);border-bottom:1px solid rgba(240,242,232,.14);padding-bottom:8px}
 .evidence-case:nth-child(even) .case-copy{grid-column:3}
@@ -1306,11 +1311,13 @@ body:has(.vine-grape-hit.ready:hover) .vine-label{opacity:1;transform:translateY
           <h3>Aira</h3>
           <p class="case-problem">La operación de un consultorio, en un solo lugar.</p>
           <p>Agenda, historias clínicas, facturación y recordatorios para psicólogos y psiquiatras independientes.</p>
-          <div class="case-spec"><span>Prueba <b>producto real</b></span><span>Foco <b>privacidad y continuidad</b></span></div>
+          <div class="case-spec"><span>Prueba <b>producto real</b></span><span>Acceso <b>privado por datos clínicos</b></span></div>
+          <a class="case-link" href="https://cal.com/ynera/30min" target="_blank" rel="noopener">Solicitar recorrido privado ↗</a>
         </div>
-        <div class="case-visual case-ledger" aria-label="Áreas cubiertas por Aira">
+        <div class="case-visual case-ledger case-ledger--private" aria-label="Vista protegida de Aira">
           <span class="ledger-caption">Aira / operación clínica</span>
           <div class="ledger-stack" aria-hidden="true"><span>Agenda</span><span>Historias clínicas</span><span>Facturación</span></div>
+          <p class="case-privacy-note"><b>Vista protegida.</b> No publicamos capturas ni demo abierta porque Aira trabaja con información clínica.</p>
         </div>
       </article>
 
@@ -1569,6 +1576,24 @@ body:has(.vine-grape-hit.ready:hover) .vine-label{opacity:1;transform:translateY
 </footer>
 
 <script>
+/* El reloj se ejecuta aislado para que siga funcionando aunque otra animación falle. */
+(function(){
+  var el=document.getElementById('baTime');
+  if(!el) return;
+  function update(){
+    var now=new Date();
+    try{
+      el.textContent=new Intl.DateTimeFormat('es-AR',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Argentina/Buenos_Aires'}).format(now);
+    }catch(e){
+      var ba=new Date(now.getTime()-3*60*60*1000);
+      el.textContent=String(ba.getUTCHours()).padStart(2,'0')+':'+String(ba.getUTCMinutes()).padStart(2,'0');
+    }
+  }
+  update(); window.setInterval(update,30000);
+})();
+</script>
+
+<script>
 /* ═══ JS mínimo (sin React, sin canvas, sin workers) ═══ */
 (function(){
   'use strict';
@@ -1638,11 +1663,6 @@ body:has(.vine-grape-hit.ready:hover) .vine-label{opacity:1;transform:translateY
   }else{
     revealNodes.forEach(function(el){ el.classList.add('in'); });
   }
-
-  /* hora Buenos Aires */
-  var baEl = document.getElementById('baTime');
-  function tickBA(){ try{ if(baEl) baEl.textContent = new Intl.DateTimeFormat('es-AR',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Argentina/Buenos_Aires'}).format(new Date()); }catch(e){} }
-  tickBA(); setInterval(tickBA, 30000);
 
   /* lámina founders: draw-on + loops */
   var svg = document.querySelector('.lamina-svg');

@@ -1,10 +1,12 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.disable('x-powered-by');
+app.set('trust proxy', true);
 
 app.use((req, res, next) => {
   res.set('X-Content-Type-Options', 'nosniff');
@@ -16,6 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname, {
+  index: false,
   maxAge: '1y',
   setHeaders: (res, filePath) => {
     if (path.extname(filePath) === '.html') {
@@ -29,7 +32,11 @@ app.get('/health', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const host = String(req.get('host') || '').replace(/[^a-zA-Z0-9.:-]/g, '');
+  const origin = `${req.protocol}://${host || 'localhost'}`;
+  const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8')
+    .replace(/__PUBLIC_ORIGIN__/g, origin);
+  res.type('html').send(html);
 });
 
 app.listen(PORT, () => {
