@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0B1511"/>
+  <rect width="1200" height="630" fill="#F4F0E6"/>
   <circle cx="600" cy="280" r="120" fill="none" stroke="#A782FF" stroke-width="2" opacity=".6"/>
   <circle cx="600" cy="280" r="80" fill="none" stroke="#70D69A" stroke-width="1.5" opacity=".4"/>
   <circle cx="600" cy="280" r="40" fill="#A782FF" opacity=".15"/>
   <circle cx="600" cy="280" r="8" fill="#A782FF"/>
   <circle cx="540" cy="240" r="4" fill="#70D69A" opacity=".7"/>
   <circle cx="660" cy="320" r="4" fill="#C5E77C" opacity=".7"/>
-  <text x="600" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="52" font-style="italic" fill="#F0F2E8" font-weight="600">Ynera</text>
-  <text x="600" y="510" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#F0F2E8" opacity=".72">IA, datos y seguridad para PyMEs</text>
-  <text x="600" y="545" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#F0F2E8" opacity=".45" letter-spacing="2">CONSTRUIMOS ANTES DE ACONSEJAR</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="52" font-style="italic" fill="#19241D" font-weight="600">Ynera</text>
+  <text x="600" y="510" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#19241D" opacity=".72">IA, datos y seguridad para PyMEs</text>
+  <text x="600" y="545" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#19241D" opacity=".52" letter-spacing="2">CONSTRUIMOS ANTES DE ACONSEJAR</text>
 </svg>

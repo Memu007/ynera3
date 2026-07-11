@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%230B1511' stroke='%23A782FF' stroke-width='2'/%3E%3Cpath d='M16 23V12m0 4c-4-1-6-3-6-6 4 0 6 2 6 6Zm0 2c4-1 6-3 6-6-4 0-6 2-6 6Z' fill='none' stroke='%2370D69A' stroke-width='1.6'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#0B1511">
+<meta name="theme-color" content="#F4F0E6">
 <script>document.documentElement.classList.add('js')</script>
 
 <!-- ═══ JSON-LD para SEO (rich snippets) ═══ -->
@@ -51,8 +51,8 @@
    Tecnología que se cultiva. Bosque, verde vivo y violeta.
    ═══════════════════════════════════════════════════════ */
 :root{
-  --deep:#0B1511; --deep-2:#102119; --panel:#172A20;
-  --ink:#F0F2E8; --ink-70:rgba(240,242,232,.72); --ink-45:rgba(240,242,232,.56); --ink-25:rgba(240,242,232,.22); --ink-12:rgba(240,242,232,.11);
+  --deep:#F4F0E6; --deep-2:#E8E2D3; --panel:#172A20;
+  --ink:#19241D; --ink-70:rgba(25,36,29,.72); --ink-45:rgba(25,36,29,.56); --ink-25:rgba(25,36,29,.22); --ink-12:rgba(25,36,29,.11);
   --coral:#A782FF; --coral-dim:rgba(167,130,255,.14);
   --aqua:#70D69A; --aqua-dim:rgba(112,214,154,.13);
   --amber:#C5E77C;
@@ -579,6 +579,47 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
 @media(max-width:920px){.hero-visual.hero-garden{grid-column:auto;grid-row:auto;order:0;min-height:390px;width:min(600px,100%);justify-self:center}.hero-visual .garden-caption{bottom:6px}}
 @media(max-width:620px){.hero-visual.hero-garden{min-height:360px}.hero-visual.hero-garden svg{max-width:390px}.hero-visual .garden-caption{font-size:7.5px}}
 
+/* Síntesis clara: lienzo crema con islas técnicas oscuras. */
+body{background:
+  radial-gradient(circle at 8% 6%,rgba(112,214,154,.12),transparent 24%),
+  radial-gradient(circle at 91% 3%,rgba(167,130,255,.12),transparent 26%),
+  var(--deep)}
+nav#nav.scrolled{background:rgba(244,240,230,.94);border-color:var(--ink-12);box-shadow:0 8px 30px rgba(25,36,29,.05)}
+.mobile-menu{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);background:rgba(15,29,23,.985);color:var(--ink)}
+.mobile-menu a,.mobile-close{color:var(--ink)}
+.hero{background:
+  radial-gradient(circle at 76% 22%,rgba(167,130,255,.14),transparent 27%),
+  radial-gradient(circle at 70% 48%,rgba(112,214,154,.12),transparent 34%)}
+.hero::before{background:linear-gradient(115deg,transparent,rgba(112,214,154,.07) 44%,rgba(167,130,255,.08) 62%,transparent)}
+.hero-visual.hero-garden{border-radius:48% 52% 46% 54% / 42% 46% 54% 58%;background:radial-gradient(circle at 54% 52%,rgba(255,255,255,.54),rgba(112,214,154,.055) 58%,transparent 72%)}
+.hero-visual .garden{filter:drop-shadow(0 22px 32px rgba(42,69,54,.12))}
+.hero-protocol{--deep:#0E1C16;--deep-2:#14271E;--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);color:var(--ink);background:linear-gradient(145deg,#102119,#0C1712);border:1px solid rgba(112,214,154,.2);box-shadow:0 30px 80px rgba(25,36,29,.15)}
+.protocol-row+.protocol-row{border-color:var(--ink-12)}
+#productos{background:linear-gradient(180deg,rgba(112,214,154,.12),rgba(244,240,230,0) 72%)}
+#pilares{background:rgba(112,214,154,.105)}
+#nosotros{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);color:var(--ink);background:linear-gradient(135deg,#14271E,#0E1B15)}
+#nosotros::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 20%,rgba(112,214,154,.1),transparent 25%),radial-gradient(circle at 88% 70%,rgba(167,130,255,.1),transparent 25%)}
+.case-visual{--deep:#0E1C16;--deep-2:#14271E;--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);color:var(--ink);background:var(--deep-2)}
+.entry-desk{--ink:#F0F2E8;--ink-70:rgba(240,242,232,.72);--ink-45:rgba(240,242,232,.56);--ink-25:rgba(240,242,232,.22);--ink-12:rgba(240,242,232,.11);color:var(--ink);border:1px solid rgba(112,214,154,.22);background:linear-gradient(125deg,#14271E,#0D1A14 70%);box-shadow:0 30px 80px rgba(25,36,29,.14)}
+footer{background:rgba(232,226,211,.48)}
+
+/* El tallo lateral recupera la narrativa botánica de la primera versión. */
+.botanical-rail{display:none;position:fixed;left:6px;top:84px;bottom:24px;width:44px;z-index:18;pointer-events:none;opacity:.72}
+.botanical-rail svg{width:100%;height:100%;overflow:visible}
+.botanical-rail .rail-stem{fill:none;stroke:var(--aqua);stroke-width:1.25;stroke-linecap:round}
+.botanical-rail .rail-leaf{fill:rgba(112,214,154,.13);stroke:var(--aqua);stroke-width:1;opacity:.18;transform-box:fill-box;transform-origin:center;transform:scale(.55);transition:opacity .55s ease,transform .55s cubic-bezier(.25,1.4,.5,1)}
+.botanical-rail .rail-leaf.on{opacity:.92;transform:scale(1)}
+.botanical-rail .rail-node{fill:var(--coral);stroke:var(--deep);stroke-width:2;opacity:.28;transition:opacity .45s ease}
+.botanical-rail .rail-node.on{opacity:1}
+@media(min-width:900px){.botanical-rail{display:block}.wrap{padding-left:34px;padding-right:26px}}
+
+/* Los antiguos nervios pasan a ser pequeñas ramas entre secciones. */
+.nerve{height:46px;max-width:320px;background:none;overflow:visible}
+.nerve::before{content:"";position:absolute;left:28px;right:28px;top:22px;height:1px;background:linear-gradient(90deg,transparent,var(--aqua),var(--aqua),transparent);opacity:.5}
+.nerve::after{top:15px;bottom:auto;left:calc(50% - 7px);width:13px;height:13px;background:rgba(244,240,230,.95);border:1px solid var(--aqua);border-radius:13px 1px 13px 1px;transform:rotate(38deg);animation:vineBreathe 3.6s ease-in-out infinite;box-shadow:none}
+.nerve-static::after{animation:vineBreathe 3.6s ease-in-out infinite;opacity:.75}
+@keyframes vineBreathe{0%,100%{transform:rotate(38deg) scale(.86);opacity:.5}50%{transform:rotate(38deg) scale(1.12);opacity:1}}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
@@ -597,6 +638,16 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
 <body>
 
 <a class="skip-link" href="#main">Saltar al contenido</a>
+<aside class="botanical-rail" aria-hidden="true">
+  <svg viewBox="0 0 44 760" preserveAspectRatio="none">
+    <path class="rail-stem" d="M23 748 C18 675 27 616 22 548 C17 475 29 408 23 337 C17 268 28 205 22 138 C19 101 23 67 21 14"/>
+    <g data-at=".08"><path class="rail-leaf" d="M21 112 C6 101 5 87 8 78 C19 81 28 91 21 112Z"/><circle class="rail-node" cx="21" cy="112" r="3"/></g>
+    <g data-at=".24"><path class="rail-leaf" d="M23 235 C38 222 40 207 36 198 C25 203 17 215 23 235Z"/><circle class="rail-node" cx="23" cy="235" r="3"/></g>
+    <g data-at=".43"><path class="rail-leaf" d="M23 373 C7 362 5 347 9 338 C20 342 29 353 23 373Z"/><circle class="rail-node" cx="23" cy="373" r="3"/></g>
+    <g data-at=".64"><path class="rail-leaf" d="M22 515 C37 503 39 488 35 479 C24 484 16 496 22 515Z"/><circle class="rail-node" cx="22" cy="515" r="3"/></g>
+    <g data-at=".83"><path class="rail-leaf" d="M22 653 C7 642 5 627 9 618 C20 622 29 633 22 653Z"/><circle class="rail-node" cx="22" cy="653" r="3"/></g>
+  </svg>
+</aside>
 <noscript><p style="position:fixed;top:0;left:0;right:0;background:#A782FF;color:#0B1511;padding:12px;text-align:center;font-family:sans-serif;font-size:14px;z-index:999">Ynera — Consultoría de IA, datos y seguridad para PyMEs. Hablá con un founder: hola@ynera.com</p></noscript>
 
 <nav id="nav" aria-label="Navegación principal">
@@ -1389,6 +1440,27 @@ body.scrolling .hero-protocol,body.scrolling .hero-protocol *,body.scrolling .he
   var nav = document.getElementById('nav');
   function onScroll(){ if(nav) nav.classList.toggle('scrolled', window.scrollY > 24); }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* tallo botánico: crece y abre hojas a medida que avanza la página */
+  var railPath = document.querySelector('.botanical-rail .rail-stem');
+  var railMarks = document.querySelectorAll('.botanical-rail [data-at]');
+  if(railPath){
+    var railLength = railPath.getTotalLength();
+    railPath.style.strokeDasharray = railLength;
+    railPath.style.strokeDashoffset = railLength;
+    function updateBotanicalRail(){
+      var maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      var progress = Math.max(0, Math.min(1, window.scrollY / maxScroll));
+      railPath.style.strokeDashoffset = (railLength * (1 - progress)).toFixed(2);
+      railMarks.forEach(function(mark){
+        var active = progress >= parseFloat(mark.getAttribute('data-at') || 0);
+        mark.querySelectorAll('.rail-leaf,.rail-node').forEach(function(part){ part.classList.toggle('on', active); });
+      });
+    }
+    window.addEventListener('scroll', updateBotanicalRail, {passive:true});
+    window.addEventListener('resize', updateBotanicalRail, {passive:true});
+    updateBotanicalRail();
+  }
 
   /* scroll-freeze: congelar animaciones durante el scroll */
   var scrollTimer;
