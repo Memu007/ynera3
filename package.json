@@ -1,0 +1,12 @@
+{
+  "name": "ynera3",
+  "version": "1.0.0",
+  "description": "Ynera — Síntesis orgánica y tecnológica para IA, datos y seguridad",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
